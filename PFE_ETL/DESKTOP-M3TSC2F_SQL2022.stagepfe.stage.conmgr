@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-M3TSC2F_SQL2022.stagepfe.stage"
+  DTS:DTSID="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-M3TSC2F\SQL2022;User ID=stage;Initial Catalog=stagepfe;Provider=SQLOLEDB.1;Application Name=SSIS-PFE_ETL-{6C33766C-99AC-439D-8764-6FF8FC85EBF1}DESKTOP-M3TSC2F\SQL2022.stagepfe.stage;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAcbl9PJ4dzEWW//msnJ1TCQAAAAACAAAAAAAQZgAAAAEAACAAAAADNPnaj0r0Qc8QURuC2EJNZtPqmXFmcGWs7LPCBR+HyQAAAAAOgAAAAAIAACAAAACdXKxfmIN7fGHp76bz307lfy4r1lCNr7V/KOgzQa6/GXAAAAAD1ThVvODEKYNi123pRuiW9DVeCbMhTOOI/uK8getGCZecIuqFEzgA6TcwcxuG7rMKssqHUIWrL2hdgSothAUMwmG7rFjC1feRQrj4InxXEOq2SflZzp6iwqU3peQktZscfyMDILZce1kohy7Na17UQAAAALC0+hrFkcxNcSJL/SLffD2ca2GrW1rJXwl8hxdU/Svx5qyqIsAxn9it7EFZ1FuaVIptfxQjMhD8WNchtcDB4bA=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
