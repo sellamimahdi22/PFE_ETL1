@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="DimCA_Corres"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{20876A02-CBD7-410D-8AB9-521E1193F44C}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{EB86768C-54FB-42B9-BD2C-4447BFBEB4D4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -230,7 +230,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[DimRemise_corres]</property>
+                  name="OpenRowset">[Dim_ca_corr]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -766,6 +766,97 @@
               </outputs>
             </component>
             <component
+              refId="Package\Tâche de flux de données\Fractionnement conditionnel 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="Fractionnement conditionnel 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel].Columns[montanttotal]"
+                      cachedDataType="numeric"
+                      cachedName="montanttotal"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[montanttotal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Case 1]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[montanttotal]} != 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">montanttotal != 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Tâche de flux de données\Jointure de fusion"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
@@ -937,43 +1028,22 @@
                       cachedDataType="i4"
                       cachedName="idclient"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idclient]" />
+                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[idclient]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idfacturereglement]"
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idpriseencharge]"
                       cachedDataType="i4"
-                      cachedName="idfacturereglement"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idfacturereglement]" />
+                      cachedName="idpriseencharge"
+                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[idpriseencharge]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idfactureclient]"
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[designation]"
+                      cachedDataType="nText"
+                      cachedName="designation"
+                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[designation]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idorganisme]"
                       cachedDataType="i4"
-                      cachedName="idfactureclient"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idfactureclient]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[montanttotal]"
-                      cachedDataType="numeric"
-                      cachedName="montanttotal"
-                      cachedPrecision="18"
-                      cachedScale="3"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[montanttotal]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[montantregler]"
-                      cachedDataType="numeric"
-                      cachedName="montantregler"
-                      cachedPrecision="18"
-                      cachedScale="3"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[montantregler]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[montantremise]"
-                      cachedDataType="numeric"
-                      cachedName="montantremise"
-                      cachedPrecision="18"
-                      cachedScale="3"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[montantremise]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idtypeclient]"
-                      cachedDataType="i4"
-                      cachedName="idtypeclient"
-                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idtypeclient]" />
+                      cachedName="idorganisme"
+                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[idorganisme]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -987,22 +1057,43 @@
                       cachedDataType="i4"
                       cachedName="idclient"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[idclient]" />
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idclient]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idpriseencharge]"
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idfacturereglement]"
                       cachedDataType="i4"
-                      cachedName="idpriseencharge"
-                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[idpriseencharge]" />
+                      cachedName="idfacturereglement"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idfacturereglement]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[designation]"
-                      cachedDataType="nText"
-                      cachedName="designation"
-                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[designation]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idorganisme]"
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idfactureclient]"
                       cachedDataType="i4"
-                      cachedName="idorganisme"
-                      lineageId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri].Columns[idorganisme]" />
+                      cachedName="idfactureclient"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idfactureclient]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[montanttotal]"
+                      cachedDataType="numeric"
+                      cachedName="montanttotal"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[montanttotal]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[montantregler]"
+                      cachedDataType="numeric"
+                      cachedName="montantregler"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[montantregler]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[montantremise]"
+                      cachedDataType="numeric"
+                      cachedName="montantremise"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[montantremise]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idtypeclient]"
+                      cachedDataType="i4"
+                      cachedName="idtypeclient"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idtypeclient]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1013,32 +1104,6 @@
                   isSorted="true"
                   name="Sortie de jointure de fusion">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfacturereglement]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfacturereglement]"
-                      name="idfacturereglement">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idfacturereglement]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfactureclient]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfactureclient]"
-                      name="idfactureclient">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idfactureclient]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idclient]"
                       dataType="i4"
@@ -1054,6 +1119,71 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idpriseencharge]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idpriseencharge]"
+                      name="idpriseencharge">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idpriseencharge]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[designation]"
+                      dataType="nText"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[designation]"
+                      name="designation">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[designation]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idorganisme]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idorganisme]"
+                      name="idorganisme">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idorganisme]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfacturereglement]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfacturereglement]"
+                      name="idfacturereglement">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idfacturereglement]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfactureclient]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idfactureclient]"
+                      name="idfactureclient">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idfactureclient]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[montanttotal]"
                       dataType="numeric"
                       lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[montanttotal]"
@@ -1065,7 +1195,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[montanttotal]}</property>
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[montanttotal]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1080,7 +1210,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[montantregler]}</property>
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[montantregler]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1095,7 +1225,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[montantremise]}</property>
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[montantremise]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1108,46 +1238,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion].Columns[idtypeclient]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idpriseencharge]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idpriseencharge]"
-                      name="idpriseencharge">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idpriseencharge]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[designation]"
-                      dataType="nText"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[designation]"
-                      name="designation">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[designation]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idorganisme]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idorganisme]"
-                      name="idorganisme">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Colonne d'entrée associée à cette colonne de sortie"
-                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idorganisme]}</property>
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idtypeclient]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1156,11 +1247,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tâche de flux de données\priseen charge"
+              refId="Package\Tâche de flux de données\prise en charge"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="priseen charge"
+              name="prise en charge"
               usesDispositions="true"
               version="7">
               <properties>
@@ -1205,7 +1296,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\priseen charge.Connections[OleDbConnection]"
+                  refId="Package\Tâche de flux de données\prise en charge.Connections[OleDbConnection]"
                   connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
                   connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -1213,205 +1304,205 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB]"
+                  refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[idpriseencharge]"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[idpriseencharge]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]"
                       name="idpriseencharge"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[designation]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[designation]"
                       dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[designation]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[designation]"
                       name="designation"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[idorganisme]"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[idorganisme]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]"
                       name="idorganisme"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[idpriseencharge]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[idpriseencharge]"
                       dataType="i4"
                       name="idpriseencharge" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
                       dataType="nText"
                       name="designation" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[plafond_prise_en_charge]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[plafond_prise_en_charge]"
                       dataType="numeric"
                       name="plafond_prise_en_charge"
                       precision="10"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[poucentage_client]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[poucentage_client]"
                       dataType="numeric"
                       name="poucentage_client"
                       precision="10"
                       scale="5" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[idorganisme]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[idorganisme]"
                       dataType="i4"
                       name="idorganisme" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[idtypepriseencharge]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[idtypepriseencharge]"
                       dataType="i4"
                       name="idtypepriseencharge" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[date_debut]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[date_debut]"
                       dataType="dbTimeStamp"
                       name="date_debut" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[date_fin]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[date_fin]"
                       dataType="dbTimeStamp"
                       name="date_fin" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[actif]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[actif]"
                       dataType="i4"
                       name="actif" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseclientanalyse]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseclientanalyse]"
                       dataType="numeric"
                       name="remiseclientanalyse"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseorganismeanalyse]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseorganismeanalyse]"
                       dataType="numeric"
                       name="remiseorganismeanalyse"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[coutb]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[coutb]"
                       dataType="numeric"
                       name="coutb"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[coutapb]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[coutapb]"
                       dataType="numeric"
                       name="coutapb"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseclientprelevement]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseclientprelevement]"
                       dataType="numeric"
                       name="remiseclientprelevement"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseorganismeprelevement]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseorganismeprelevement]"
                       dataType="numeric"
                       name="remiseorganismeprelevement"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseautreserviceorganisme]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseautreserviceorganisme]"
                       dataType="numeric"
                       name="remiseautreserviceorganisme"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseautreserviceclient]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[remiseautreserviceclient]"
                       dataType="numeric"
                       name="remiseautreserviceclient"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[pourcentageservicesupclient]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[pourcentageservicesupclient]"
                       dataType="numeric"
                       name="pourcentageservicesupclient"
                       precision="9"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[tva]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[tva]"
                       dataType="numeric"
                       name="tva"
                       precision="18"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[calcultva]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[calcultva]"
                       dataType="i4"
                       name="calcultva" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[affichertotal]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[affichertotal]"
                       dataType="i4"
                       name="affichertotal" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[titrerapport]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[titrerapport]"
                       dataType="nText"
                       name="titrerapport" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[formulediffptient]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[formulediffptient]"
                       dataType="i4"
                       name="formulediffptient" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[idmodelprixanalyse]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[idmodelprixanalyse]"
                       dataType="i4"
                       name="idmodelprixanalyse" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[code]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[code]"
                       dataType="wstr"
                       length="100"
                       name="code" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[calculservicesup]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[calculservicesup]"
                       dataType="i4"
                       name="calculservicesup" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].ExternalColumns[calcultvadepuisttc]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].ExternalColumns[calcultvadepuisttc]"
                       dataType="i4"
                       name="calcultvadepuisttc" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idpriseencharge]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idpriseencharge]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idpriseencharge]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idpriseencharge]"
                       name="idpriseencharge" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
                       dataType="nText"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
                       name="designation" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idorganisme]"
+                      refId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idorganisme]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idorganisme]"
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie d'erreur de source OLE DB].Columns[idorganisme]"
                       name="idorganisme" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -1542,7 +1633,7 @@
                       refId="Package\Tâche de flux de données\Trier 1.Inputs[Entrée de tri].Columns[idpriseencharge]"
                       cachedDataType="i4"
                       cachedName="idpriseencharge"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]">
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1558,7 +1649,7 @@
                       refId="Package\Tâche de flux de données\Trier 1.Inputs[Entrée de tri].Columns[designation]"
                       cachedDataType="nText"
                       cachedName="designation"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[designation]">
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[designation]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1574,7 +1665,7 @@
                       refId="Package\Tâche de flux de données\Trier 1.Inputs[Entrée de tri].Columns[idorganisme]"
                       cachedDataType="i4"
                       cachedName="idorganisme"
-                      lineageId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]">
+                      lineageId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1607,7 +1698,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]}</property>
+                          name="SortColumnId">#{Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idpriseencharge]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1620,7 +1711,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[designation]}</property>
+                          name="SortColumnId">#{Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[designation]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1633,7 +1724,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
-                          name="SortColumnId">#{Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]}</property>
+                          name="SortColumnId">#{Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB].Columns[idorganisme]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2054,8 +2145,13 @@
           </components>
           <paths>
             <path
+              refId="Package\Tâche de flux de données.Paths[Case 1]"
+              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Case 1"
+              startId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Case 1]" />
+            <path
               refId="Package\Tâche de flux de données.Paths[organisme]"
-              endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion]"
+              endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion]"
               name="organisme"
               startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[organisme]" />
             <path
@@ -2065,7 +2161,7 @@
               startId="Package\Tâche de flux de données\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
-              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              endId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]"
               name="Sortie de jointure de fusion"
               startId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion]" />
             <path
@@ -2077,7 +2173,7 @@
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
               endId="Package\Tâche de flux de données\Trier 1.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\priseen charge.Outputs[Sortie de source OLE DB]" />
+              startId="Package\Tâche de flux de données\prise en charge.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
               endId="Package\Tâche de flux de données\Trier 2.Inputs[Entrée de tri]"
@@ -2095,14 +2191,14 @@
               startId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de tri2]"
-              endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion]"
-              name="Sortie de tri"
-              startId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri]" />
-            <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri3]"
               endId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri3]"
+              endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2133,33 +2229,29 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="147.2,41.6"
-          Id="Package\Tâche de flux de données\priseen charge"
+          Size="139.2,41.6"
+          Id="Package\Tâche de flux de données\prise en charge"
           TopLeft="264.166652233237,49.3999996564786" />
         <NodeLayout
           Size="148,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion"
-          TopLeft="230.999996557832,271.999995946884" />
+          TopLeft="179.999997317791,271.999995946884" />
         <NodeLayout
           Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 2"
-          TopLeft="536.999991998077,167.999997496605" />
+          TopLeft="482.99999280274,167.999997496605" />
         <NodeLayout
           Size="96.8,41.6"
           Id="Package\Tâche de flux de données\Trier"
-          TopLeft="147.999997794628,161.999997586012" />
+          TopLeft="112.999998316169,161.999997586012" />
         <NodeLayout
           Size="188.8,41.6"
           Id="Package\Tâche de flux de données\Fractionnement conditionnel"
-          TopLeft="575.999991416931,267.599996036291" />
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion 1"
-          TopLeft="474.999992921948,323.999995172024" />
+          TopLeft="444.999993368983,272.599995961785" />
         <NodeLayout
           Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 1"
-          TopLeft="338.999994948506,164.999997541308" />
+          TopLeft="287.999995708465,164.999997541308" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\Tâche de flux de données\FactureRelglement"
@@ -2171,71 +2263,37 @@
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="597.999991089106,392.599994173646" />
+          TopLeft="654.99999023974,344.599994888902" />
         <NodeLayout
           Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 3"
-          TopLeft="288.999995693564,341.999994903803" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri2]"
-          TopLeft="392.999995693564,362.799994903803">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="81.999997228384,-17.9999997317792"
-              Start="0,0"
-              End="74.499997228384,-17.9999997317792">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="36.999998614192,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.999998614192,0"
-                    Point2="40.999998614192,0"
-                    Point3="40.999998614192,-4" />
-                  <mssgle:LineSegment
-                    End="40.999998614192,-13.9999997317792" />
-                  <mssgle:CubicBezierSegment
-                    Point1="40.999998614192,-13.9999997317792"
-                    Point2="40.999998614192,-17.9999997317792"
-                    Point3="44.999998614192,-17.9999997317792" />
-                  <mssgle:LineSegment
-                    End="74.499997228384,-17.9999997317792" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="203.999996960163,338.999994948507" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri1]"
-          TopLeft="196.399997794628,203.599997586012">
+          TopLeft="161.399998316169,203.599997586012">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="85.2666654298703,68.3999983608723"
+              EndConnector="69.2666656682892,68.399998360872"
               Start="0,0"
-              End="85.2666654298703,60.8999983608723">
+              End="69.2666656682892,60.899998360872">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.6010685457584" />
+                    End="0,36.6010685457582" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,36.6010685457584"
-                    Point2="0,40.6010685457584"
-                    Point3="4,40.6010685457584" />
+                    Point1="0,36.6010685457582"
+                    Point2="0,40.6010685457582"
+                    Point3="4,40.6010685457582" />
                   <mssgle:LineSegment
-                    End="81.2666654298703,40.6010685457584" />
+                    End="65.2666656682892,40.6010685457582" />
                   <mssgle:CubicBezierSegment
-                    Point1="81.2666654298703,40.6010685457584"
-                    Point2="85.2666654298703,40.6010685457584"
-                    Point3="85.2666654298703,44.6010685457584" />
+                    Point1="65.2666656682892,40.6010685457582"
+                    Point2="69.2666656682892,40.6010685457582"
+                    Point3="69.2666656682892,44.6010685457582" />
                   <mssgle:LineSegment
-                    End="85.2666654298703,60.8999983608723" />
+                    End="69.2666656682892,60.899998360872" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2246,30 +2304,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
-          TopLeft="390.999994948506,206.599997541308">
+          TopLeft="339.999995708465,206.599997541308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-62.6666650573413,65.3999984055758"
+              EndConnector="-62.6666650573408,65.399998405576"
               Start="0,0"
-              End="-62.6666650573413,57.8999984055758">
+              End="-62.6666650573408,57.899998405576">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.820319909192" />
+                    End="0,34.8203199091922" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.820319909192"
-                    Point2="0,38.820319909192"
-                    Point3="-4,38.820319909192" />
+                    Point1="0,34.8203199091922"
+                    Point2="0,38.8203199091922"
+                    Point3="-4,38.8203199091922" />
                   <mssgle:LineSegment
-                    End="-58.6666650573413,38.820319909192" />
+                    End="-58.6666650573408,38.8203199091922" />
                   <mssgle:CubicBezierSegment
-                    Point1="-58.6666650573413,38.820319909192"
-                    Point2="-62.6666650573413,38.820319909192"
-                    Point3="-62.6666650573413,42.820319909192" />
+                    Point1="-58.6666650573408,38.8203199091922"
+                    Point2="-62.6666650573408,38.8203199091922"
+                    Point3="-62.6666650573408,42.8203199091922" />
                   <mssgle:LineSegment
-                    End="-62.6666650573413,57.8999984055758" />
+                    End="-62.6666650573408,57.899998405576" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2280,30 +2338,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
-          TopLeft="535.366634530658,92.3333330043819">
+          TopLeft="535.183313666699,92.3333330043819">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="53.6333574674184,75.666664492223"
+              EndConnector="0,75.6666644922231"
               Start="0,0"
-              End="53.6333574674184,68.166664492223">
+              End="0,68.1666644922231">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.8333322461115" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.8333322461115"
-                    Point2="0,37.8333322461115"
-                    Point3="4,37.8333322461115" />
-                  <mssgle:LineSegment
-                    End="49.6333574674184,37.8333322461115" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49.6333574674184,37.8333322461115"
-                    Point2="53.6333574674184,37.8333322461115"
-                    Point3="53.6333574674184,41.8333322461115" />
-                  <mssgle:LineSegment
-                    End="53.6333574674184,68.166664492223" />
+                    End="0,68.1666644922231" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2314,30 +2360,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
-          TopLeft="337.766652233237,90.9999996564786">
+          TopLeft="336.883323970851,90.9999996564786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="53.2333427152694,73.9999978848298"
+              EndConnector="0,73.9999978848294"
               Start="0,0"
-              End="53.2333427152694,66.4999978848298">
+              End="0,66.4999978848294">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.9999989424149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.9999989424149"
-                    Point2="0,36.9999989424149"
-                    Point3="4,36.9999989424149" />
-                  <mssgle:LineSegment
-                    End="49.2333427152694,36.9999989424149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49.2333427152694,36.9999989424149"
-                    Point2="53.2333427152694,36.9999989424149"
-                    Point3="53.2333427152694,40.9999989424149" />
-                  <mssgle:LineSegment
-                    End="53.2333427152694,66.4999978848298" />
+                    End="0,66.4999978848294" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2348,64 +2382,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="163.233327277667,90.1333329958386">
+          TopLeft="162.316662796918,90.1333329958386">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33.1666705169612,71.8666645901733"
+              EndConnector="0,71.8666645901734"
               Start="0,0"
-              End="33.1666705169612,64.3666645901733">
+              End="0,64.3666645901734">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.9333322950867" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.9333322950867"
-                    Point2="0,35.9333322950867"
-                    Point3="4,35.9333322950867" />
-                  <mssgle:LineSegment
-                    End="29.1666705169612,35.9333322950867" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29.1666705169612,35.9333322950867"
-                    Point2="33.1666705169612,35.9333322950867"
-                    Point3="33.1666705169612,39.9333322950867" />
-                  <mssgle:LineSegment
-                    End="33.1666705169612,64.3666645901733" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
-          TopLeft="552.599992921948,365.599995172024">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="123.799998167157,26.9999990016221"
-              Start="0,0"
-              End="123.799998167157,19.4999990016221">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.49999950081107" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.49999950081107"
-                    Point2="0,13.4999995008111"
-                    Point3="4,13.4999995008111" />
-                  <mssgle:LineSegment
-                    End="119.799998167157,13.4999995008111" />
-                  <mssgle:CubicBezierSegment
-                    Point1="119.799998167157,13.4999995008111"
-                    Point2="123.799998167157,13.4999995008111"
-                    Point3="123.799998167157,17.4999995008111" />
-                  <mssgle:LineSegment
-                    End="123.799998167157,19.4999990016221" />
+                    End="0,64.3666645901734" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2416,30 +2404,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
-          TopLeft="304.999996557832,313.599995946884">
+          TopLeft="254.999997138977,313.599995946884">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.9999991357327,28.3999989569188"
+              EndConnector="0,25.3999990016225"
               Start="0,0"
-              End="35.9999991357327,20.8999989569188">
+              End="0,17.8999990016225">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.1999994784594" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.1999994784594"
-                    Point2="0,14.1999994784594"
-                    Point3="4,14.1999994784594" />
-                  <mssgle:LineSegment
-                    End="31.9999991357327,14.1999994784594" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31.9999991357327,14.1999994784594"
-                    Point2="35.9999991357327,14.1999994784594"
-                    Point3="35.9999991357327,18.1999994784594" />
-                  <mssgle:LineSegment
-                    End="35.9999991357327,20.8999989569188" />
+                    End="0,17.8999990016225" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2449,61 +2425,93 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[organisme]"
-          TopLeft="575.999991416931,288.399996036291">
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri2]"
+          TopLeft="537.199993085861,209.599997496605">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-23.3999984949828,35.5999991357326"
+              EndConnector="0,62.9999984651802"
               Start="0,0"
-              End="-23.3999984949828,28.0999991357326">
+              End="0,55.4999984651802">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-19.3999984949828,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.3999984949828,0"
-                    Point2="-23.3999984949828,0"
-                    Point3="-23.3999984949828,4" />
+                    End="0,55.4999984651802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion 1"
+          TopLeft="381.999994307757,379.999994397163" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[organisme]"
+          TopLeft="539.399993368983,314.199995961785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.7999990612267,65.7999984353781"
+              Start="0,0"
+              End="-79.7999990612267,58.2999984353781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-23.3999984949828,28.0999991357326" />
+                    End="0,28.8999992176891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8999992176891"
+                    Point2="0,32.8999992176891"
+                    Point3="-4,32.8999992176891" />
+                  <mssgle:LineSegment
+                    End="-75.7999990612267,32.8999992176891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.7999990612267,32.8999992176891"
+                    Point2="-79.7999990612267,32.8999992176891"
+                    Point3="-79.7999990612267,36.8999992176891" />
+                  <mssgle:LineSegment
+                    End="-79.7999990612267,58.2999984353781" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-47.0308383387328,-17.384765625,47.2616796875,11.384765625"
+              BoundingBox="-63.5308393743633,37.8999992176891,47.2616796875,11.384765625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
-          TopLeft="588.999991998077,209.599997496605">
+          TopLeft="307.999996960163,359.799994948507">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="81.3999994188547,57.9999985396863"
+              EndConnector="73.9999973475939,40.9999994486569"
               Start="0,0"
-              End="81.3999994188547,50.4999985396863">
+              End="66.4999973475939,40.9999994486569">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.9999992698431" />
+                    End="32.9999986737969,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.9999992698431"
-                    Point2="0,28.9999992698431"
-                    Point3="4,28.9999992698431" />
+                    Point1="32.9999986737969,0"
+                    Point2="36.9999986737969,0"
+                    Point3="36.9999986737969,4" />
                   <mssgle:LineSegment
-                    End="77.3999994188547,28.9999992698431" />
+                    End="36.9999986737969,36.9999994486569" />
                   <mssgle:CubicBezierSegment
-                    Point1="77.3999994188547,28.9999992698431"
-                    Point2="81.3999994188547,28.9999992698431"
-                    Point3="81.3999994188547,32.9999992698431" />
+                    Point1="36.9999986737969,36.9999994486569"
+                    Point2="36.9999986737969,40.9999994486569"
+                    Point3="40.9999986737969,40.9999994486569" />
                   <mssgle:LineSegment
-                    End="81.3999994188547,50.4999985396863" />
+                    End="66.4999973475939,40.9999994486569" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2512,11 +2520,85 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Tâche de flux de données\Fractionnement conditionnel 1"
+          TopLeft="577.999991387129,428.999994203448" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
+          TopLeft="537.199994307756,400.799994397163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.7999970793725,48.999999806285"
+              Start="0,0"
+              End="33.2999970793725,48.999999806285">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.3999985396862,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.3999985396862,0"
+                    Point2="20.3999985396862,0"
+                    Point3="20.3999985396862,4" />
+                  <mssgle:LineSegment
+                    End="20.3999985396862,44.999999806285" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.3999985396862,44.999999806285"
+                    Point2="20.3999985396862,48.999999806285"
+                    Point3="24.3999985396862,48.999999806285" />
+                  <mssgle:LineSegment
+                    End="33.2999970793725,48.999999806285" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Case 1]"
+          TopLeft="675.999991387129,428.999994203448">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.3999988526107,-42.7999993145467"
+              Start="0,0"
+              End="57.3999988526107,-35.2999993145467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.3999996572733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.3999996572733"
+                    Point2="0,-21.3999996572733"
+                    Point3="4,-21.3999996572733" />
+                  <mssgle:LineSegment
+                    End="53.3999988526107,-21.3999996572733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.3999988526107,-21.3999996572733"
+                    Point2="57.3999988526107,-21.3999996572733"
+                    Point3="57.3999988526107,-25.3999996572733" />
+                  <mssgle:LineSegment
+                    End="57.3999988526107,-35.2999993145467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.4819134888053,-16.3999996572733,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\priseen charge">
+    design-time-name="Package\Tâche de flux de données\prise en charge">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

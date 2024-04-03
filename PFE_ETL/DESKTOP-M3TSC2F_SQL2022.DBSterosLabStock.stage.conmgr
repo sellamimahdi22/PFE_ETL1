@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage"
+  DTS:DTSID="{89ACE31F-7268-4C62-AC46-33033B239141}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-M3TSC2F\SQL2022;User ID=stage;Initial Catalog=DBSterosLabStock;Provider=SQLOLEDB.1;Application Name=SSIS-PFE_ETL-{89ACE31F-7268-4C62-AC46-33033B239141}DESKTOP-M3TSC2F\SQL2022.DBSterosLabStock.stage;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAcbl9PJ4dzEWW//msnJ1TCQAAAAACAAAAAAAQZgAAAAEAACAAAADQgwP5Stlww1bZKwk4vHjH3grZQaOXqA3z38A+SlyTbwAAAAAOgAAAAAIAACAAAAAvF2Vc+3LO97tUGGU5yje3H2cPh5M/RzaI/uMpMQ/g33AAAABARd7JxAtDXVMCMYvvfKar6zMhtlqn/Gr4LPFssveiTOhkkd/nUbsYqyFrdzGfyHRFZa8KToD+OFGbArggAXS86DROyT0OUiNNIpveMlrKOi131iaDp7+oqmYEkzOM7R/JB9vAHGmm3WRfb1VAffpcQAAAAElCncn28e2qp6XLfPSTcwkkX43uLzCxtqjbP9Pn6CVnm7EB94za1aM212reWyk5GVgfeP6p9en1r5JmnwCk4cw=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
