@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Debugging_CA"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{E9F48BAD-3984-4688-BA9E-8DD9BBF83E5D}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{B7234B27-1FD0-4E9C-8015-CE56680F5400}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -74,7 +74,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>ca_par_medecin.dtsx</PackageName>
+              <PackageName>Dim_Ca_Medecin.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -123,34 +123,7 @@
           DTS:To="Package\Conteneur de séquences\Tâche d'exécution de package 3" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{760A6B09-F939-42FD-BF96-8405A87652EB}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}"
-          SQLTask:SqlStatementSource="truncate table Dim_etat_paiement ;&#xA;truncate table  [Dim_ca_corr] ;&#xA;truncate table  [DimCAMedecin] ;&#xA;truncate table[Fact_chiff_aff] ;&#xA;&#xA;&#xA; &#xA; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
-      DTS:CreationName=""
-      DTS:DTSID="{A0BBBE2F-A2C0-4B11-A339-DFCCA6889960}"
-      DTS:From="Package\Tâche d'exécution de requêtes SQL"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte"
-      DTS:To="Package\Conteneur de séquences" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
 <!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
@@ -162,7 +135,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="197.6,41.6"
           Id="Package\Conteneur de séquences\Tâche d'exécution de package"
@@ -270,44 +243,6 @@
           Size="302.4,323.2"
           Id="Package\Conteneur de séquences"
           TopLeft="273.999995917082,218.999996736646" />
-        <NodeLayout
-          Size="218.4,41.6"
-          Id="Package\Tâche d'exécution de requêtes SQL"
-          TopLeft="237.499996542931,56.4999992400408" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="346.699996542931,98.0999992400408">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78.4999993741512,120.899997496605"
-              Start="0,0"
-              End="78.4999993741512,113.399997496605">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.4499987483025" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.4499987483025"
-                    Point2="0,60.4499987483025"
-                    Point3="4,60.4499987483025" />
-                  <mssgle:LineSegment
-                    End="74.4999993741512,60.4499987483025" />
-                  <mssgle:CubicBezierSegment
-                    Point1="74.4999993741512,60.4499987483025"
-                    Point2="78.4999993741512,60.4499987483025"
-                    Point3="78.4999993741512,64.4499987483025" />
-                  <mssgle:LineSegment
-                    End="78.4999993741512,113.399997496605" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

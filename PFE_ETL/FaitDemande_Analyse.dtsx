@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="FaitDemande_Analyse"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{03745351-8A05-4DA2-9C08-6E4664FFBBDA}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{498833AB-4E6F-482E-ABFC-3532530A9A0C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[DimAnalyse]</property>
+                  name="OpenRowset">[dbo].[Dim_Analyse]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -139,6 +139,15 @@
                       lineageId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie de source OLE DB].Columns[actif]"
                       name="actif"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Analyse]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie de source OLE DB].ExternalColumns[Id_Dim_Analyse]"
+                      lineageId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Analyse]"
+                      name="Id_Dim_Analyse"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -178,6 +187,10 @@
                       dataType="wstr"
                       length="276"
                       name="Designation" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie de source OLE DB].ExternalColumns[Id_Dim_Analyse]"
+                      dataType="i4"
+                      name="Id_Dim_Analyse" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -185,6 +198,11 @@
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie d'erreur de source OLE DB].Columns[Id_Dim_Analyse]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie d'erreur de source OLE DB].Columns[Id_Dim_Analyse]"
+                      name="Id_Dim_Analyse" />
                     <outputColumn
                       refId="Package\Tâche de flux de données\DemandeAnalyse.Outputs[Sortie d'erreur de source OLE DB].Columns[iddemandeanalyses]"
                       dataType="numeric"
@@ -245,7 +263,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[FactANAlyse]</property>
+                  name="OpenRowset">[dbo].[Fact_Analyse]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -366,6 +384,14 @@
                       name="iddemandeanalyses"
                       precision="18" />
                     <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idpaillasse]"
+                      dataType="i4"
+                      name="idpaillasse" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idbranche]"
+                      dataType="i4"
+                      name="idbranche" />
+                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
                       dataType="dbTimeStamp"
                       name="date" />
@@ -387,17 +413,21 @@
                       dataType="nText"
                       name="designation branche" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idbranche]"
-                      dataType="i4"
-                      name="idbranche" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idpaillasse]"
-                      dataType="i4"
-                      name="idpaillasse" />
-                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
                       dataType="nText"
                       name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Analyse]"
+                      dataType="i4"
+                      name="Id_Dim_Analyse" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Branche]"
+                      dataType="i4"
+                      name="Id_Dim_Branche" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Paillasse]"
+                      dataType="i4"
+                      name="Id_Dim_Paillasse" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -440,13 +470,13 @@
                   description="Spécifie l'instruction SQL qui génère la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimBranche]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Branche]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimBranche]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Branche]) [refTable]
 where [refTable].[iddemandeanalyses] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -478,7 +508,7 @@ where [refTable].[iddemandeanalyses] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idprofile" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idbranche" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation branche" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="iddimBranche" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idbranche" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idprofile" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation branche" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -612,13 +642,13 @@ where [refTable].[iddemandeanalyses] = ?</property>
                   description="Spécifie l'instruction SQL qui génère la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimAnalyse]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Analyse]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimAnalyse]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Analyse]) [refTable]
 where [refTable].[iddemandeanalyses] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -757,13 +787,13 @@ where [refTable].[iddemandeanalyses] = ?</property>
                   description="Spécifie l'instruction SQL qui génère la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPaillasse]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Paillasse]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPaillasse]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Paillasse]) [refTable]
 where [refTable].[iddemandeanalyses] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -795,7 +825,7 @@ where [refTable].[iddemandeanalyses] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idprofile" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idbranche" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idpaillasse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="iddimPaillasse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idpaillasse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idprofile" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idbranche" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -967,83 +997,25 @@ where [refTable].[iddemandeanalyses] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\Tâche de flux de données\recherche par paillasse"
-          TopLeft="485.714286748244,273.952940955273" />
-        <NodeLayout
-          Size="228.8,41.6"
-          Id="Package\Tâche de flux de données\Recherche par demandeAnalyse"
-          TopLeft="373.571429366664,159.823529271673" />
-        <NodeLayout
           Size="187.2,41.6"
           Id="Package\Tâche de flux de données\Recherche par branche"
           TopLeft="23.5714286216063,162.882352798404" />
         <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Tâche de flux de données\recherche par paillasse"
+          TopLeft="485.714286748244,273.952940955273" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="176.999997362494,331.999995052815" />
+        <NodeLayout
           Size="159.2,41.6"
           Id="Package\Tâche de flux de données\DemandeAnalyse"
-          TopLeft="459.285715263413,74.9411764048997" />
+          TopLeft="458.452381975611,30.741176712261" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="203.714283797814,315.235295061473" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="538.885715263413,116.5411764049">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-50.9142858967493,43.2823528667731"
-              Start="0,0"
-              End="-50.9142858967493,35.7823528667731">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.6411764333865" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.6411764333865"
-                    Point2="0,21.6411764333865"
-                    Point3="-4,21.6411764333865" />
-                  <mssgle:LineSegment
-                    End="-46.9142858967493,21.6411764333865" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-46.9142858967493,21.6411764333865"
-                    Point2="-50.9142858967493,21.6411764333865"
-                    Point3="-50.9142858967493,25.6411764333865" />
-                  <mssgle:LineSegment
-                    End="-50.9142858967493,35.7823528667731" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="373.571429366664,182.152941035038">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-162.800000745057,0"
-              Start="0,0"
-              End="-155.300000745057,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-155.300000745057,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-169.327012091279,5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="228.8,41.6"
+          Id="Package\Tâche de flux de données\Recherche par demandeAnalyse"
+          TopLeft="373.571429366664,159.823529271673" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
           TopLeft="117.171428621606,204.482352798404">
@@ -1081,38 +1053,96 @@ where [refTable].[iddemandeanalyses] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="538.052381975611,72.341176712261">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.0809526089471,87.482352559412"
+              Start="0,0"
+              End="-50.0809526089471,79.982352559412">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.741176279706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.741176279706"
+                    Point2="0,43.741176279706"
+                    Point3="-4,43.741176279706" />
+                  <mssgle:LineSegment
+                    End="-46.0809526089471,43.741176279706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.0809526089471,43.741176279706"
+                    Point2="-50.0809526089471,43.741176279706"
+                    Point3="-50.0809526089471,47.741176279706" />
+                  <mssgle:LineSegment
+                    End="-50.0809526089471,79.982352559412" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance2]"
           TopLeft="485.714286748244,294.752940955273">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-111.60000295043,41.2823541062"
+              EndConnector="-151.914289385749,58.0470540975416"
               Start="0,0"
-              End="-104.10000295043,41.2823541062">
+              End="-144.414289385749,58.0470540975416">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-51.800001475215,0" />
+                    End="-71.9571446928747,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-51.800001475215,0"
-                    Point2="-55.800001475215,0"
-                    Point3="-55.800001475215,4" />
+                    Point1="-71.9571446928747,0"
+                    Point2="-75.9571446928747,0"
+                    Point3="-75.9571446928747,4" />
                   <mssgle:LineSegment
-                    End="-55.800001475215,37.2823541062" />
+                    End="-75.9571446928747,54.0470540975416" />
                   <mssgle:CubicBezierSegment
-                    Point1="-55.800001475215,37.2823541062"
-                    Point2="-55.800001475215,41.2823541062"
-                    Point3="-59.800001475215,41.2823541062" />
+                    Point1="-75.9571446928747,54.0470540975416"
+                    Point2="-75.9571446928747,58.0470540975416"
+                    Point3="-79.9571446928747,58.0470540975416" />
                   <mssgle:LineSegment
-                    End="-104.10000295043,41.2823541062" />
+                    End="-144.414289385749,58.0470540975416" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-147.477013193965,-17.609375,183.3540234375,11.609375"
+              BoundingBox="-167.634156411625,-17.609375,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="373.571429366664,182.152941035038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-162.800000745057,0"
+              Start="0,0"
+              End="-155.300000745057,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-155.300000745057,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-169.327012091279,5,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1120,7 +1150,7 @@ where [refTable].[iddemandeanalyses] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\recherche par paillasse">
+    design-time-name="Package\Tâche de flux de données\Recherche par branche">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -1130,7 +1160,7 @@ where [refTable].[iddemandeanalyses] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimPaillasse]</Value>
+          type="q3:string">[dbo].[Dim_Branche]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -1153,7 +1183,7 @@ where [refTable].[iddemandeanalyses] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimAnalyse]</Value>
+          type="q3:string">[dbo].[Dim_Analyse]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -1166,25 +1196,15 @@ where [refTable].[iddemandeanalyses] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Recherche par branche">
+    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimBranche]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1202,15 +1222,25 @@ where [refTable].[iddemandeanalyses] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    design-time-name="Package\Tâche de flux de données\recherche par paillasse">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Paillasse]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

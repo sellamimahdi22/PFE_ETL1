@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{64F4302A-C72C-4DE3-B88F-85BC51666B35}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{E5C262EC-C598-4A9B-86A6-F159090FD435}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -283,7 +283,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[Dim_nb_F_CA]</property>
+                  name="OpenRowset">[dbo].[Dim_nb_Fournisseur_CA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -383,6 +383,10 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idfournisseur]"
+                      dataType="i4"
+                      name="idfournisseur" />
+                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idcommande]"
                       dataType="i4"
                       name="idcommande" />
@@ -394,10 +398,6 @@
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[datecommande]"
                       dataType="dbTimeStamp"
                       name="datecommande" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idfournisseur]"
-                      dataType="i4"
-                      name="idfournisseur" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[totalttc]"
                       dataType="numeric"
@@ -1186,17 +1186,21 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Tâche de flux de données\fournisseur"
-          TopLeft="345.833319591152,37.2666669628355" />
+          Size="108,41.6"
+          Id="Package\Tâche de flux de données\Trier 1"
+          TopLeft="383.333318101036,148.200001177788" />
         <NodeLayout
           Size="160,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion"
           TopLeft="234.999990661939,209.733335000144" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="156.8,41.6"
           Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="234.999990661939,295.533335682021" />
+          TopLeft="283.99999576807,316.999995276332" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Tâche de flux de données\fournisseur"
+          TopLeft="345.833319591152,37.2666669628355" />
         <NodeLayout
           Size="100,41.6"
           Id="Package\Tâche de flux de données\Trier"
@@ -1205,32 +1209,6 @@
           Size="129.6,41.6"
           Id="Package\Tâche de flux de données\commande"
           TopLeft="79.1666635208661,32.0666669215097" />
-        <NodeLayout
-          Size="108,41.6"
-          Id="Package\Tâche de flux de données\Trier 1"
-          TopLeft="383.333318101036,148.200001177788" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
-          TopLeft="317.799990661939,251.333335000144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.2000006818772"
-              Start="0,0"
-              End="0,36.7000006818772">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.7000006818772" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri1]"
           TopLeft="383.333318101036,169.000001177788">
@@ -1361,11 +1339,45 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
+          TopLeft="314.999990661939,251.333335000144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.4000051061313,65.666660276188"
+              Start="0,0"
+              End="47.4000051061313,58.166660276188">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.833330138094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.833330138094"
+                    Point2="0,32.833330138094"
+                    Point3="4,32.833330138094" />
+                  <mssgle:LineSegment
+                    End="43.4000051061313,32.833330138094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.4000051061313,32.833330138094"
+                    Point2="47.4000051061313,32.833330138094"
+                    Point3="47.4000051061313,36.833330138094" />
+                  <mssgle:LineSegment
+                    End="47.4000051061313,58.166660276188" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\fournisseur">
+    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1378,7 +1390,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    design-time-name="Package\Tâche de flux de données\fournisseur">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

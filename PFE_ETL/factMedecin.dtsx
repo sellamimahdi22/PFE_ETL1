@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="factMedecin"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{CC692FB7-C6DE-4258-A702-1D3820896C45}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{E05B5874-036C-411F-81CF-0650156C0755}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[FactMedecin]</property>
+                  name="OpenRowset">[dbo].[Fact_Medecin]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -104,80 +104,98 @@
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddemandeanalyses]"
-                      cachedDataType="numeric"
-                      cachedName="iddemandeanalyses"
-                      cachedPrecision="18"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddemandeanalyses]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="date"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[date]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idetat_demande_analyse]"
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Id_Dim_Medecin]"
                       cachedDataType="i4"
-                      cachedName="idetat_demande_analyse"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idetat_demande_analyse]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[actif]"
-                      cachedDataType="i4"
-                      cachedName="actif"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[actif]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[actif]" />
+                      cachedName="Id_Dim_Medecin"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Medecin]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Medecin]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idmedecin]"
                       cachedDataType="i4"
                       cachedName="idmedecin"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idmedecin]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idmedecin]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idmedecin]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nom_en]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="nom_en"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom_en]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[nom_en]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom_en]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[specialite]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="specialite"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[specialite]"
-                      lineageId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie de recherche avec correspondance].Columns[specialite]" />
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddemandeanalyses]"
+                      cachedDataType="numeric"
+                      cachedName="iddemandeanalyses"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddemandeanalyses]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idetat_demande_analyse]"
+                      cachedDataType="i4"
+                      cachedName="idetat_demande_analyse"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idetat_demande_analyse]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idspecialitemedicale]"
                       cachedDataType="i4"
                       cachedName="idspecialitemedicale"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddetailsdemandeanalyse]"
                       cachedDataType="numeric"
                       cachedName="iddetailsdemandeanalyse"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailsdemandeanalyse]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddetailsdemandeanalyse]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[abriviation]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="abriviation"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[abriviation]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[abriviation]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddetailsdemandeanalyse]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[designation]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="designation"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[designation]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[designation]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[abriviation]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="abriviation"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[abriviation]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[abriviation]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[actif]"
+                      cachedDataType="i4"
+                      cachedName="actif"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[actif]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[actif]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[specialite]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="specialite"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[specialite]"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[specialite]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Medecin]"
+                      dataType="i4"
+                      name="Id_Dim_Medecin" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
+                      dataType="i4"
+                      name="idspecialitemedicale" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idmedecin]"
+                      dataType="i4"
+                      name="idmedecin" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddemandeanalyses]"
                       dataType="numeric"
@@ -196,24 +214,6 @@
                       dataType="i4"
                       name="actif" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idmedecin]"
-                      dataType="i4"
-                      name="idmedecin" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom_en]"
-                      dataType="wstr"
-                      length="50"
-                      name="nom_en" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[specialite]"
-                      dataType="wstr"
-                      length="50"
-                      name="specialite" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
-                      dataType="i4"
-                      name="idspecialitemedicale" />
-                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[abriviation]"
                       dataType="wstr"
                       length="20"
@@ -228,6 +228,20 @@
                       dataType="wstr"
                       length="255"
                       name="designation" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom_en]"
+                      dataType="wstr"
+                      length="50"
+                      name="nom_en" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[specialite]"
+                      dataType="wstr"
+                      length="50"
+                      name="specialite" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Specialite]"
+                      dataType="i4"
+                      name="Id_Dim_Specialite" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -257,11 +271,375 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tâche de flux de données\dimMedecin"
+              refId="Package\Tâche de flux de données\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Medecin]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Medecin]) [refTable]
+where [refTable].[idmedecin] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id_Dim_Medecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idmedecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom_en" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idspecialitemedicale" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailsdemandeanalyse" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idmedecin]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.stagepfe.stage]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[idmedecin]"
+                      cachedDataType="i4"
+                      cachedName="idmedecin"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idmedecin]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">idmedecin</property>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">idmedecin</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[nom_en]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nom_en"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom_en]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn" />
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">nom_en</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[Id_Dim_Medecin]"
+                      cachedDataType="i4"
+                      cachedName="Id_Dim_Medecin"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Medecin]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn" />
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Id_Dim_Medecin</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Recherche 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Specialite]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Specialite]) [refTable]
+where [refTable].[idspecialitemedicale] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id_Dim_Specialite" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idspecialitemedicale" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="specialite" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom_en" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailsdemandeanalyse" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idmedecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Recherche 1.Connections[OleDbConnection]"
+                  connectionManagerID="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.stagepfe.stage]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche].Columns[nom_en]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nom_en"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom_en]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn" />
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">nom_en</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche].Columns[idspecialitemedicale]"
+                      cachedDataType="i4"
+                      cachedName="idspecialitemedicale"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">idspecialitemedicale</property>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">idspecialitemedicale</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[specialite]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[specialite]"
+                      name="specialite"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">specialite</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Source OLE DB"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="dimMedecin"
+              name="Source OLE DB"
               usesDispositions="true"
               version="7">
               <properties>
@@ -272,7 +650,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[DimMedecin]</property>
+                  name="OpenRowset">[dbo].[Dim_Medecin]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -306,7 +684,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\dimMedecin.Connections[OleDbConnection]"
+                  refId="Package\Tâche de flux de données\Source OLE DB.Connections[OleDbConnection]"
                   connectionManagerID="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}:external"
                   connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.stagepfe.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -314,582 +692,242 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB]"
+                  refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Medecin]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Id_Dim_Medecin]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Medecin]"
+                      name="Id_Dim_Medecin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idmedecin]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idmedecin]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idmedecin]"
+                      name="idmedecin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom_en]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom_en]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom_en]"
+                      name="nom_en"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[iddemandeanalyses]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[iddemandeanalyses]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]"
                       name="iddemandeanalyses"
                       precision="18"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[date]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[date]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
                       name="date"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[idetat_demande_analyse]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idetat_demande_analyse]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]"
                       name="idetat_demande_analyse"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[actif]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[actif]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[actif]"
-                      name="actif"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idspecialitemedicale]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
+                      name="idspecialitemedicale"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[abriviation]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[abriviation]"
-                      length="20"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[abriviation]"
-                      name="abriviation"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddetailsdemandeanalyse]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddetailsdemandeanalyse]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[iddetailsdemandeanalyse]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddetailsdemandeanalyse]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[iddetailsdemandeanalyse]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddetailsdemandeanalyse]"
                       name="iddetailsdemandeanalyse"
                       precision="18"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[designation]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[designation]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]"
                       name="designation"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[idspecialitemedicale]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
-                      name="idspecialitemedicale"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idmedecin]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[idmedecin]"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idmedecin]"
-                      name="idmedecin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[nom_en]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[abriviation]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[nom_en]"
-                      length="50"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[nom_en]"
-                      name="nom_en"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[abriviation]"
+                      length="20"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[abriviation]"
+                      name="abriviation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[actif]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[actif]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[actif]"
+                      name="actif"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[iddemandeanalyses]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Id_Dim_Medecin]"
+                      dataType="i4"
+                      name="Id_Dim_Medecin" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idmedecin]"
+                      dataType="i4"
+                      name="idmedecin" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom_en]"
+                      dataType="wstr"
+                      length="50"
+                      name="nom_en" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[iddemandeanalyses]"
                       dataType="numeric"
                       name="iddemandeanalyses"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
                       dataType="dbTimeStamp"
                       name="date" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[idetat_demande_analyse]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idetat_demande_analyse]"
                       dataType="i4"
                       name="idetat_demande_analyse" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[abriviation]"
-                      dataType="wstr"
-                      length="20"
-                      name="abriviation" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[actif]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idspecialitemedicale]"
                       dataType="i4"
-                      name="actif" />
+                      name="idspecialitemedicale" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[iddetailsdemandeanalyse]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[iddetailsdemandeanalyse]"
                       dataType="numeric"
                       name="iddetailsdemandeanalyse"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
                       dataType="wstr"
                       length="255"
                       name="designation" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[idspecialitemedicale]"
-                      dataType="i4"
-                      name="idspecialitemedicale" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[idmedecin]"
-                      dataType="i4"
-                      name="idmedecin" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].ExternalColumns[nom_en]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[abriviation]"
                       dataType="wstr"
-                      length="50"
-                      name="nom_en" />
+                      length="20"
+                      name="abriviation" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[actif]"
+                      dataType="i4"
+                      name="actif" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[iddetailsdemandeanalyse]"
-                      dataType="numeric"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[iddetailsdemandeanalyse]"
-                      name="iddetailsdemandeanalyse"
-                      precision="18" />
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Id_Dim_Medecin]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Id_Dim_Medecin]"
+                      name="Id_Dim_Medecin" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idmedecin]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idmedecin]"
+                      name="idmedecin" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom_en]"
                       dataType="wstr"
-                      length="255"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
-                      name="designation" />
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom_en]"
+                      name="nom_en" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[iddemandeanalyses]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[iddemandeanalyses]"
                       dataType="numeric"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[iddemandeanalyses]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[iddemandeanalyses]"
                       name="iddemandeanalyses"
                       precision="18" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
                       name="date" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[idetat_demande_analyse]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idetat_demande_analyse]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[idetat_demande_analyse]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idetat_demande_analyse]"
                       name="idetat_demande_analyse" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idspecialitemedicale]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[idspecialitemedicale]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[idspecialitemedicale]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idspecialitemedicale]"
                       name="idspecialitemedicale" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[idmedecin]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[idmedecin]"
-                      name="idmedecin" />
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[iddetailsdemandeanalyse]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[iddetailsdemandeanalyse]"
+                      name="iddetailsdemandeanalyse"
+                      precision="18" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[nom_en]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[nom_en]"
-                      name="nom_en" />
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
+                      name="designation" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[actif]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[actif]"
-                      name="actif" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[abriviation]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[abriviation]"
                       dataType="wstr"
                       length="20"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie d'erreur de source OLE DB].Columns[abriviation]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[abriviation]"
                       name="abriviation" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Tâche de flux de données\Recherche par medecin"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
-              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="Recherche par medecin"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimMedecin]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimMedecin]) [refTable]
-where [refTable].[iddemandeanalyses] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de cache de la table de correspondance."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idmedecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom_en" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idspecialitemedicale" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailsdemandeanalyse" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Tâche de flux de données\Recherche par medecin.Connections[OleDbConnection]"
-                  connectionManagerID="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.stagepfe.stage]"
-                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche]"
-                  name="Entrée de recherche">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche].Columns[iddemandeanalyses]"
-                      cachedDataType="numeric"
-                      cachedName="iddemandeanalyses"
-                      cachedPrecision="18"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">iddemandeanalyses</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche].Columns[idmedecin]"
-                      cachedDataType="i4"
-                      cachedName="idmedecin"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idmedecin]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">idmedecin</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche].Columns[nom_en]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="nom_en"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[nom_en]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">nom_en</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie de recherche avec correspondance]"
-                  errorOrTruncationOperation="Recherche"
-                  exclusionGroup="1"
-                  name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie de recherche sans correspondance]"
-                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
-                  exclusionGroup="1"
-                  name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie d'erreur de recherche]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche]">
-                  <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[actif]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[actif]"
+                      name="actif" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Tâche de flux de données\Recherche par scpecialite"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
-              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="Recherche par scpecialite"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimSpecialite]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimSpecialite]) [refTable]
-where [refTable].[idmedecin] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de cache de la table de correspondance."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="specialite" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom_en" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailsdemandeanalyse" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idspecialitemedicale" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idmedecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idmedecin]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Tâche de flux de données\Recherche par scpecialite.Connections[OleDbConnection]"
-                  connectionManagerID="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.stagepfe.stage]"
-                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche]"
-                  name="Entrée de recherche">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche].Columns[idmedecin]"
-                      cachedDataType="i4"
-                      cachedName="idmedecin"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idmedecin]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">idmedecin</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche].Columns[idspecialitemedicale]"
-                      cachedDataType="i4"
-                      cachedName="idspecialitemedicale"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">idspecialitemedicale</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie de recherche avec correspondance]"
-                  errorOrTruncationOperation="Recherche"
-                  exclusionGroup="1"
-                  name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie de recherche avec correspondance].Columns[specialite]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      length="50"
-                      lineageId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie de recherche avec correspondance].Columns[specialite]"
-                      name="specialite"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">specialite</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie de recherche sans correspondance]"
-                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
-                  exclusionGroup="1"
-                  name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie d'erreur de recherche]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -901,19 +939,19 @@ where [refTable].[idmedecin] = ?</property>
           <paths>
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
-              endId="Package\Tâche de flux de données\Recherche par scpecialite.Inputs[Entrée de recherche]"
+              endId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]"
               name="Sortie de recherche avec correspondance"
-              startId="Package\Tâche de flux de données\Recherche par medecin.Outputs[Sortie de recherche avec correspondance]" />
+              startId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
               endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
               name="Sortie de recherche avec correspondance"
-              startId="Package\Tâche de flux de données\Recherche par scpecialite.Outputs[Sortie de recherche avec correspondance]" />
+              startId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-              endId="Package\Tâche de flux de données\Recherche par medecin.Inputs[Entrée de recherche]"
+              endId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]"
               name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\dimMedecin.Outputs[Sortie de source OLE DB]" />
+              startId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -944,35 +982,47 @@ where [refTable].[idmedecin] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\Tâche de flux de données\dimMedecin"
-          TopLeft="285.714286322496,41.2941176108629" />
+          Size="140.8,41.6"
+          Id="Package\Tâche de flux de données\Source OLE DB"
+          TopLeft="240.99999640882,64.9999990314245" />
         <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Tâche de flux de données\Recherche par scpecialite"
-          TopLeft="267.142857711534,239.352940966668" />
+          Size="128,41.6"
+          Id="Package\Tâche de flux de données\Recherche 1"
+          TopLeft="245.999996334314,223.99999666214" />
         <NodeLayout
-          Size="170.4,41.6"
+          Size="156.8,41.6"
           Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="265.714286279922,336.470587940365" />
+          TopLeft="217.999996751547,333.999995023012" />
         <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Tâche de flux de données\Recherche par medecin"
-          TopLeft="262.14285770089,124.647058714271" />
+          Size="120.8,41.6"
+          Id="Package\Tâche de flux de données\Recherche"
+          TopLeft="198.999997034669,135.999997973442" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="354.728572011693,82.8941176108629">
+          TopLeft="311.39999640882,106.599999031425">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.7529411034081"
+              EndConnector="-51.9999993741513,29.3999989420176"
               Start="0,0"
-              End="0,34.2529411034081">
+              End="-51.9999993741513,21.8999989420176">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.2529411034081" />
+                    End="0,10.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6999994710088"
+                    Point2="0,14.6999994710088"
+                    Point3="-4,14.6999994710088" />
+                  <mssgle:LineSegment
+                    End="-47.9999993741513,14.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.9999993741513,14.6999994710088"
+                    Point2="-51.9999993741513,14.6999994710088"
+                    Point3="-51.9999993741513,18.6999994710088" />
+                  <mssgle:LineSegment
+                    End="-51.9999993741513,21.8999989420176" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -983,73 +1033,73 @@ where [refTable].[idmedecin] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="365.942857711534,280.952940966668">
+          TopLeft="309.999996334314,265.59999666214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.028571431612,55.517646973697"
+              EndConnector="-13.5999995827675,68.3999983608722"
               Start="0,0"
-              End="-15.028571431612,48.017646973697">
+              End="-13.5999995827675,60.8999983608722">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.7588234868485" />
+                    End="0,30.1999991804361" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.7588234868485"
-                    Point2="0,27.7588234868485"
-                    Point3="-4,27.7588234868485" />
+                    Point1="0,30.1999991804361"
+                    Point2="0,34.1999991804361"
+                    Point3="-4,34.1999991804361" />
                   <mssgle:LineSegment
-                    End="-11.028571431612,27.7588234868485" />
+                    End="-9.59999958276745,34.1999991804361" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.028571431612,27.7588234868485"
-                    Point2="-15.028571431612,27.7588234868485"
-                    Point3="-15.028571431612,31.7588234868485" />
+                    Point1="-9.59999958276745,34.1999991804361"
+                    Point2="-13.5999995827675,34.1999991804361"
+                    Point3="-13.5999995827675,38.1999991804361" />
                   <mssgle:LineSegment
-                    End="-15.028571431612,48.017646973697" />
+                    End="-13.5999995827675,60.8999983608722" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-99.191297434556,32.7588234868485,183.3540234375,11.609375"
+              BoundingBox="-98.4770115101337,39.1999991804361,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="356.54285770089,166.247058714271">
+          TopLeft="259.399997034669,177.599997973442">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.40000001064408,73.105882252397"
+              EndConnector="50.5999992996454,46.3999986886978"
               Start="0,0"
-              End="9.40000001064408,65.605882252397">
+              End="50.5999992996454,38.8999986886978">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5529411261985" />
+                    End="0,19.1999993443489" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.5529411261985"
-                    Point2="0,36.5529411261985"
-                    Point3="4,36.5529411261985" />
+                    Point1="0,19.1999993443489"
+                    Point2="0,23.1999993443489"
+                    Point3="4,23.1999993443489" />
                   <mssgle:LineSegment
-                    End="5.40000001064408,36.5529411261985" />
+                    End="46.5999992996454,23.1999993443489" />
                   <mssgle:CubicBezierSegment
-                    Point1="5.40000001064408,36.5529411261985"
-                    Point2="9.40000001064408,36.5529411261985"
-                    Point3="9.40000001064408,40.5529411261985" />
+                    Point1="46.5999992996454,23.1999993443489"
+                    Point2="50.5999992996454,23.1999993443489"
+                    Point3="50.5999992996454,27.1999993443489" />
                   <mssgle:LineSegment
-                    End="9.40000001064408,65.605882252397" />
+                    End="50.5999992996454,38.8999986886978" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-86.977011713428,41.5529411261985,183.3540234375,11.609375"
+              BoundingBox="-66.3770120689273,28.1999993443489,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1057,7 +1107,7 @@ where [refTable].[idmedecin] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\dimMedecin">
+    design-time-name="Package\Tâche de flux de données\Source OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1070,22 +1120,22 @@ where [refTable].[idmedecin] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Recherche par scpecialite">
+    design-time-name="Package\Tâche de flux de données\Recherche 1">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimSpecialite]</Value>
+          type="q3:string">[dbo].[Dim_Specialite]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1106,22 +1156,22 @@ where [refTable].[idmedecin] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Recherche par medecin">
+    design-time-name="Package\Tâche de flux de données\Recherche">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimMedecin]</Value>
+          type="q3:string">[dbo].[Dim_Medecin]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-LA5Q28L"
   DTS:CreatorName="DESKTOP-LA5Q28L\Utilisateur"
-  DTS:DTSID="{A02D045E-EB71-4FB3-AE03-04F622412FE7}"
+  DTS:DTSID="{D847A053-AED0-488C-A505-18DCF9D3558C}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1036"
   DTS:ObjectName="DimSpecialite"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{63D97048-2BD8-4DB0-AAEE-130A544510C1}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{6E5E7900-6837-43B8-901A-DBA52EE9E28E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Tâche de flux de données"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{FC07EF39-D6B0-4295-958F-9CEE550430F0}"
+      DTS:DTSID="{5037F11F-B3F1-4C3E-BA8D-3341A9883FE1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tâche de flux de données"
@@ -31,6 +31,184 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Tâche de flux de données\condition Actif"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="condition Actif"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\condition Actif.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\condition Actif.Inputs[Entrée de fractionnement conditionnel].Columns[actif]"
+                      cachedDataType="i4"
+                      cachedName="actif"
+                      lineageId="Package\Tâche de flux de données\detailsdemandeanalyse.Outputs[Sortie de source OLE DB].Columns[actif]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\condition Actif.Outputs[Actif]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actif"
+                  synchronousInputId="Package\Tâche de flux de données\condition Actif.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\detailsdemandeanalyse.Outputs[Sortie de source OLE DB].Columns[actif]} == 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">actif == 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\condition Actif.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\condition Actif.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\condition Actif.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\condition Actif.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\condition Actif.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\condition Actif.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\condition Actif.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\condition Actif.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\condition etat"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="condition etat"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\condition etat.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\condition etat.Inputs[Entrée de fractionnement conditionnel].Columns[idetat_demande_analyse]"
+                      cachedDataType="i4"
+                      cachedName="idetat_demande_analyse"
+                      lineageId="Package\Tâche de flux de données\demandeAnalyse.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\condition etat.Outputs[etat]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="etat"
+                  synchronousInputId="Package\Tâche de flux de données\condition etat.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\demandeAnalyse.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]} != 10</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">idetat_demande_analyse != 10</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\condition etat.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\condition etat.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\condition etat.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\condition etat.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\condition etat.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\condition etat.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\condition etat.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\condition etat.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Tâche de flux de données\demandeAnalyse"
               componentClassID="Microsoft.OLEDBSource"
@@ -82,8 +260,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\demandeAnalyse.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -385,7 +563,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[DimSpecialite]</property>
+                  name="OpenRowset">[dbo].[Dim_Specialite]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -517,6 +695,14 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Specialite]"
+                      dataType="i4"
+                      name="Id_Dim_Specialite" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
+                      dataType="i4"
+                      name="idspecialitemedicale" />
+                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[specialite]"
                       dataType="wstr"
                       length="50"
@@ -558,10 +744,6 @@
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idetat_demande_analyse]"
                       dataType="i4"
                       name="idetat_demande_analyse" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
-                      dataType="i4"
-                      name="idspecialitemedicale" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idmedecin]"
                       dataType="i4"
@@ -645,8 +827,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\detailsdemandeanalyse.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -833,184 +1015,6 @@
                       length="255"
                       lineageId="Package\Tâche de flux de données\detailsdemandeanalyse.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
                       name="designation" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Tâche de flux de données\Fractionnement conditionnel"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
-              name="Fractionnement conditionnel"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
-                  description="Entrée vers la transformation de fractionnement conditionnel"
-                  name="Entrée de fractionnement conditionnel">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel].Columns[actif]"
-                      cachedDataType="i4"
-                      cachedName="actif"
-                      lineageId="Package\Tâche de flux de données\detailsdemandeanalyse.Outputs[Sortie de source OLE DB].Columns[actif]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Case 1]"
-                  description="Sortie 1 de la transformation de fractionnement conditionnel"
-                  errorOrTruncationOperation="Calcul"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Case 1"
-                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
-                      name="Expression">#{Package\Tâche de flux de données\detailsdemandeanalyse.Outputs[Sortie de source OLE DB].Columns[actif]} == 1</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
-                      expressionType="Notify"
-                      name="FriendlyExpression">actif == 1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]"
-                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
-                  exclusionGroup="1"
-                  name="Sortie par défaut de fractionnement conditionnel"
-                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel]"
-                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de fractionnement conditionnel"
-                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Tâche de flux de données\Fractionnement conditionnel 1"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
-              name="Fractionnement conditionnel 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]"
-                  description="Entrée vers la transformation de fractionnement conditionnel"
-                  name="Entrée de fractionnement conditionnel">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel].Columns[idetat_demande_analyse]"
-                      cachedDataType="i4"
-                      cachedName="idetat_demande_analyse"
-                      lineageId="Package\Tâche de flux de données\demandeAnalyse.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Case 1]"
-                  description="Sortie 1 de la transformation de fractionnement conditionnel"
-                  errorOrTruncationOperation="Calcul"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Case 1"
-                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
-                      name="Expression">#{Package\Tâche de flux de données\demandeAnalyse.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]} != 10</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
-                      expressionType="Notify"
-                      name="FriendlyExpression">idetat_demande_analyse != 10</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie par défaut de fractionnement conditionnel]"
-                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
-                  exclusionGroup="1"
-                  name="Sortie par défaut de fractionnement conditionnel"
-                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel]"
-                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de fractionnement conditionnel"
-                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1716,8 +1720,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\medecin.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -1927,8 +1931,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\specialite.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -3087,12 +3091,12 @@
               refId="Package\Tâche de flux de données.Paths[Case 1]"
               endId="Package\Tâche de flux de données\Trier 3.Inputs[Entrée de tri]"
               name="Case 1"
-              startId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Outputs[Case 1]" />
+              startId="Package\Tâche de flux de données\condition etat.Outputs[etat]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Case 11]"
               endId="Package\Tâche de flux de données\Trier 2.Inputs[Entrée de tri]"
               name="Case 1"
-              startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Case 1]" />
+              startId="Package\Tâche de flux de données\condition Actif.Outputs[Actif]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
               endId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri]"
@@ -3110,12 +3114,12 @@
               startId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-              endId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+              endId="Package\Tâche de flux de données\condition Actif.Inputs[Entrée de fractionnement conditionnel]"
               name="Sortie de source OLE DB"
               startId="Package\Tâche de flux de données\detailsdemandeanalyse.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
-              endId="Package\Tâche de flux de données\Fractionnement conditionnel 1.Inputs[Entrée de fractionnement conditionnel]"
+              endId="Package\Tâche de flux de données\condition etat.Inputs[Entrée de fractionnement conditionnel]"
               name="Sortie de source OLE DB"
               startId="Package\Tâche de flux de données\demandeAnalyse.Outputs[Sortie de source OLE DB]" />
             <path
@@ -3188,37 +3192,37 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="187.2,41.6"
-          Id="Package\Tâche de flux de données\detailsdemandeanalyse"
-          TopLeft="496.428572485337,62.6176470135786" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="254.166667207721,522.549019149808" />
-        <NodeLayout
           Size="109.6,41.6"
           Id="Package\Tâche de flux de données\Trier 3"
-          TopLeft="705.357144358664,252.352940955273" />
+          TopLeft="700.382654552156,262.867646828409" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion"
-          TopLeft="498.214286774854,349.852940869811" />
+          TopLeft="408.418368216355,372.79411732029" />
         <NodeLayout
           Size="172,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion 1"
-          TopLeft="165.476190828446,289.313725236601" />
+          TopLeft="118.154762156283,276.887254659258" />
         <NodeLayout
           Size="109.6,41.6"
           Id="Package\Tâche de flux de données\Trier 2"
-          TopLeft="460.714286695026,246.617646842654" />
+          TopLeft="447.704082585698,266.691176236823" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Tâche de flux de données\demandeAnalyse"
+          TopLeft="661.096940182812,83.6470587598514" />
         <NodeLayout
           Size="109.6,41.6"
           Id="Package\Tâche de flux de données\Trier 4"
-          TopLeft="571.428572644993,444.485293728038" />
+          TopLeft="481.632654086494,467.426470178517" />
         <NodeLayout
           Size="109.6,41.6"
           Id="Package\Tâche de flux de données\Trier 1"
-          TopLeft="77.7500001463507,160.588235153356" />
+          TopLeft="45.6071429350698,160.588235153356" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Tâche de flux de données\detailsdemandeanalyse"
+          TopLeft="406.632653926838,85.558823464058" />
         <NodeLayout
           Size="121.6,41.6"
           Id="Package\Tâche de flux de données\specialite"
@@ -3226,57 +3230,53 @@
         <NodeLayout
           Size="117.6,41.6"
           Id="Package\Tâche de flux de données\medecin"
-          TopLeft="225.892857623724,76.9558822951283" />
+          TopLeft="225.892857623724,83.6470587598514" />
         <NodeLayout
-          Size="220.8,41.6"
-          Id="Package\Tâche de flux de données\Fractionnement conditionnel 1"
-          TopLeft="755.428573017522,139.558823407083" />
+          Size="143.2,41.6"
+          Id="Package\Tâche de flux de données\condition etat"
+          TopLeft="665.632654459023,162.499999857562" />
         <NodeLayout
           Size="172,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion 2"
-          TopLeft="285.714286322496,455.318627051876" />
-        <NodeLayout
-          Size="212,41.6"
-          Id="Package\Tâche de flux de données\Fractionnement conditionnel"
-          TopLeft="498.285715327275,141.47058811129" />
+          TopLeft="208.163265749247,455.318627051876" />
         <NodeLayout
           Size="100,41.6"
           Id="Package\Tâche de flux de données\Trier"
-          TopLeft="267.035714835004,158.676470449149" />
+          TopLeft="241.142857637028,154.852941040736" />
         <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Tâche de flux de données\demandeAnalyse"
-          TopLeft="750.892858741311,60.705882309372" />
+          Size="144.8,41.6"
+          Id="Package\Tâche de flux de données\condition Actif"
+          TopLeft="408.489796768776,164.411764561769" />
         <NodeLayout
           Size="109.6,41.6"
           Id="Package\Tâche de flux de données\Trier 5"
           TopLeft="195.238095653706,368.333333010475" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri1]"
-          TopLeft="515.514286695026,288.217646842653">
+          TopLeft="502.504082585698,308.291176236823">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.1666667464942,61.6352940271573"
+              EndConnector="-38.6190477026762,64.5029410834669"
               Start="0,0"
-              End="38.1666667464942,54.1352940271573">
+              End="-38.6190477026762,57.0029410834669">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.6203844512573" />
+                    End="0,34.324186458372" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.6203844512573"
-                    Point2="0,36.6203844512573"
-                    Point3="4,36.6203844512573" />
+                    Point1="0,34.324186458372"
+                    Point2="0,38.324186458372"
+                    Point3="-4,38.324186458372" />
                   <mssgle:LineSegment
-                    End="34.1666667464942,36.6203844512573" />
+                    End="-34.6190477026762,38.324186458372" />
                   <mssgle:CubicBezierSegment
-                    Point1="34.1666667464942,36.6203844512573"
-                    Point2="38.1666667464942,36.6203844512573"
-                    Point3="38.1666667464942,40.6203844512573" />
+                    Point1="-34.6190477026762,38.324186458372"
+                    Point2="-38.6190477026762,38.324186458372"
+                    Point3="-38.6190477026762,42.324186458372" />
                   <mssgle:LineSegment
-                    End="38.1666667464942,54.1352940271573" />
+                    End="-38.6190477026762,57.0029410834669" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3287,30 +3287,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
-          TopLeft="760.157144358664,293.952940955273">
+          TopLeft="755.182654552156,304.467646828409">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-180.74285758381,55.8999999145374"
+              EndConnector="-239.830953002468,68.326470491881"
               Start="0,0"
-              End="-180.74285758381,48.3999999145374">
+              End="-239.830953002468,60.826470491881">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.9499999572687" />
+                    End="0,36.5959224678591" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.9499999572687"
-                    Point2="0,27.9499999572687"
-                    Point3="-4,27.9499999572687" />
+                    Point1="0,36.5959224678591"
+                    Point2="0,40.5959224678591"
+                    Point3="-4,40.5959224678591" />
                   <mssgle:LineSegment
-                    End="-176.74285758381,27.9499999572687" />
+                    End="-235.830953002468,40.5959224678591" />
                   <mssgle:CubicBezierSegment
-                    Point1="-176.74285758381,27.9499999572687"
-                    Point2="-180.74285758381,27.9499999572687"
-                    Point3="-180.74285758381,31.9499999572687" />
+                    Point1="-235.830953002468,40.5959224678591"
+                    Point2="-239.830953002468,40.5959224678591"
+                    Point3="-239.830953002468,44.5959224678591" />
                   <mssgle:LineSegment
-                    End="-180.74285758381,48.3999999145374" />
+                    End="-239.830953002468,60.826470491881" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3321,30 +3321,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
-          TopLeft="284.692857623724,118.555882295128">
+          TopLeft="287.917857630376,125.247058759851">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32.3428572112807,40.1205881540209"
+              EndConnector="0,29.6058822808843"
               Start="0,0"
-              End="32.3428572112807,32.6205881540209">
+              End="0,22.1058822808843">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.0602940770105" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.0602940770105"
-                    Point2="0,20.0602940770105"
-                    Point3="4,20.0602940770105" />
-                  <mssgle:LineSegment
-                    End="28.3428572112807,20.0602940770105" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.3428572112807,20.0602940770105"
-                    Point2="32.3428572112807,20.0602940770105"
-                    Point3="32.3428572112807,24.0602940770105" />
-                  <mssgle:LineSegment
-                    End="32.3428572112807,32.6205881540209" />
+                    End="0,22.1058822808843" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3355,30 +3343,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
-          TopLeft="101.871428658859,126.202941111955">
+          TopLeft="101.139285796964,126.202941111955">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30.6785714874918,34.3852940414011"
+              EndConnector="0,34.3852940414013"
               Start="0,0"
-              End="30.6785714874918,26.8852940414011">
+              End="0,26.8852940414013">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.1926470207005" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.1926470207005"
-                    Point2="0,17.1926470207005"
-                    Point3="4,17.1926470207005" />
-                  <mssgle:LineSegment
-                    End="26.6785714874918,17.1926470207005" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.6785714874918,17.1926470207005"
-                    Point2="30.6785714874918,17.1926470207005"
-                    Point3="30.6785714874918,21.1926470207005" />
-                  <mssgle:LineSegment
-                    End="30.6785714874918,26.8852940414011" />
+                    End="0,26.8852940414013" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3389,30 +3365,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
-          TopLeft="829.692858741312,102.305882309372">
+          TopLeft="738.564797320917,125.247058759851">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="36.1357142762108,37.2529410977111"
+              EndConnector="0,37.2529410977106"
               Start="0,0"
-              End="36.1357142762108,29.7529410977111">
+              End="0,29.7529410977106">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.6264705488555" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.6264705488555"
-                    Point2="0,18.6264705488555"
-                    Point3="4,18.6264705488555" />
-                  <mssgle:LineSegment
-                    End="32.1357142762108,18.6264705488555" />
-                  <mssgle:CubicBezierSegment
-                    Point1="32.1357142762108,18.6264705488555"
-                    Point2="36.1357142762108,18.6264705488555"
-                    Point3="36.1357142762108,22.6264705488555" />
-                  <mssgle:LineSegment
-                    End="36.1357142762108,29.7529410977111" />
+                    End="0,29.7529410977106" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3423,13 +3387,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="590.028572485338,104.217647013579">
+          TopLeft="500.232653926838,127.158823464058">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.2571428419376,37.252941097711"
+              EndConnector="-19.3428571580621,37.252941097711"
               Start="0,0"
-              End="14.2571428419376,29.752941097711">
+              End="-19.3428571580621,29.752941097711">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3438,49 +3402,15 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,14.6264705488555"
                     Point2="0,18.6264705488555"
-                    Point3="4,18.6264705488555" />
+                    Point3="-4,18.6264705488555" />
                   <mssgle:LineSegment
-                    End="10.2571428419376,18.6264705488555" />
+                    End="-15.3428571580621,18.6264705488555" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.2571428419376,18.6264705488555"
-                    Point2="14.2571428419376,18.6264705488555"
-                    Point3="14.2571428419376,22.6264705488555" />
+                    Point1="-15.3428571580621,18.6264705488555"
+                    Point2="-19.3428571580621,18.6264705488555"
+                    Point3="-19.3428571580621,22.6264705488555" />
                   <mssgle:LineSegment
-                    End="14.2571428419376,29.752941097711" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
-          TopLeft="371.714286322496,496.918627051876">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-32.3476191147752,25.6303920979325"
-              Start="0,0"
-              End="-32.3476191147752,18.1303920979325">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.81519604896627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.81519604896627"
-                    Point2="0,12.8151960489663"
-                    Point3="-4,12.8151960489663" />
-                  <mssgle:LineSegment
-                    End="-28.3476191147752,12.8151960489663" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-28.3476191147752,12.8151960489663"
-                    Point2="-32.3476191147752,12.8151960489663"
-                    Point3="-32.3476191147752,16.8151960489663" />
-                  <mssgle:LineSegment
-                    End="-32.3476191147752,18.1303920979325" />
+                    End="-19.3428571580621,29.752941097711" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3491,18 +3421,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
-          TopLeft="250.757143241076,330.913725236601">
+          TopLeft="204.154762156283,318.487254659258">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.4196077738738"
+              EndConnector="45.8833334974235,49.846078351217"
               Start="0,0"
-              End="0,29.9196077738738">
+              End="45.8833334974235,42.346078351217">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.9196077738738" />
+                    End="0,20.9230391756085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.9230391756085"
+                    Point2="0,24.9230391756085"
+                    Point3="4,24.9230391756085" />
+                  <mssgle:LineSegment
+                    End="41.8833334974235,24.9230391756085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.8833334974235,24.9230391756085"
+                    Point2="45.8833334974235,24.9230391756085"
+                    Point3="45.8833334974235,28.9230391756085" />
+                  <mssgle:LineSegment
+                    End="45.8833334974235,42.346078351217" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3513,7 +3455,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
-          TopLeft="579.414286774854,391.452940869811">
+          TopLeft="489.618368216355,414.39411732029">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3547,73 +3489,73 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Case 11]"
-          TopLeft="604.285715327275,183.07058811129">
+          TopLeft="480.889796768776,206.011764561769">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-88.7714286322492,63.5470587313638"
+              EndConnector="21.614285816922,60.6794116750541"
               Start="0,0"
-              End="-88.7714286322492,56.0470587313638">
+              End="21.614285816922,53.1794116750541">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.7735293656819" />
+                    End="0,26.339705837527" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.7735293656819"
-                    Point2="0,31.7735293656819"
-                    Point3="-4,31.7735293656819" />
+                    Point1="0,26.339705837527"
+                    Point2="0,30.339705837527"
+                    Point3="4,30.339705837527" />
                   <mssgle:LineSegment
-                    End="-84.7714286322492,31.7735293656819" />
+                    End="17.614285816922,30.339705837527" />
                   <mssgle:CubicBezierSegment
-                    Point1="-84.7714286322492,31.7735293656819"
-                    Point2="-88.7714286322492,31.7735293656819"
-                    Point3="-88.7714286322492,35.7735293656819" />
+                    Point1="17.614285816922,30.339705837527"
+                    Point2="21.614285816922,30.339705837527"
+                    Point3="21.614285816922,34.339705837527" />
                   <mssgle:LineSegment
-                    End="-88.7714286322492,56.0470587313638" />
+                    End="21.614285816922,53.1794116750541" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-59.6038002536246,36.7735293656819,30.436171875,9.5537109375"
+              BoundingBox="-0.104849279038996,35.339705837527,21.823984375,9.7685546875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Case 1]"
-          TopLeft="865.828573017522,181.158823407083">
+          TopLeft="737.232654459023,204.099999857562">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-105.671428658858,71.1941175481901"
+              EndConnector="17.950000093133,58.767646970847"
               Start="0,0"
-              End="-105.671428658858,63.6941175481901">
+              End="17.950000093133,51.267646970847">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.597058774095" />
+                    End="0,25.3838234854235" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.597058774095"
-                    Point2="0,35.597058774095"
-                    Point3="-4,35.597058774095" />
+                    Point1="0,25.3838234854235"
+                    Point2="0,29.3838234854235"
+                    Point3="4,29.3838234854235" />
                   <mssgle:LineSegment
-                    End="-101.671428658858,35.597058774095" />
+                    End="13.950000093133,29.3838234854235" />
                   <mssgle:CubicBezierSegment
-                    Point1="-101.671428658858,35.597058774095"
-                    Point2="-105.671428658858,35.597058774095"
-                    Point3="-105.671428658858,39.597058774095" />
+                    Point1="13.950000093133,29.3838234854235"
+                    Point2="17.950000093133,29.3838234854235"
+                    Point3="17.950000093133,33.3838234854235" />
                   <mssgle:LineSegment
-                    End="-105.671428658858,63.6941175481901" />
+                    End="17.950000093133,51.267646970847" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-68.053800266929,40.597058774095,30.436171875,9.5537109375"
+              BoundingBox="-0.470996047183508,34.3838234854235,18.8919921875,9.1728515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3623,9 +3565,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="121.67619066879,45.3852940414011"
+              EndConnector="44.1251700955409,45.385294041401"
               Start="0,0"
-              End="121.67619066879,37.8852940414011">
+              End="44.1251700955409,37.885294041401">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3636,13 +3578,13 @@
                     Point2="0,22.6926470207005"
                     Point3="4,22.6926470207005" />
                   <mssgle:LineSegment
-                    End="117.67619066879,22.6926470207005" />
+                    End="40.1251700955409,22.6926470207005" />
                   <mssgle:CubicBezierSegment
-                    Point1="117.67619066879,22.6926470207005"
-                    Point2="121.67619066879,22.6926470207005"
-                    Point3="121.67619066879,26.6926470207005" />
+                    Point1="40.1251700955409,22.6926470207005"
+                    Point2="44.1251700955409,22.6926470207005"
+                    Point3="44.1251700955409,26.6926470207005" />
                   <mssgle:LineSegment
-                    End="121.67619066879,37.8852940414011" />
+                    End="44.1251700955409,37.885294041401" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3653,30 +3595,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri4]"
-          TopLeft="571.428572644993,465.285293728038">
+          TopLeft="481.632654086494,488.226470178517">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-113.714286322496,10.833333323838"
+              EndConnector="-101.469388337247,-12.1078431266415"
               Start="0,0"
-              End="-106.214286322496,10.833333323838">
+              End="-93.9693883372471,-12.1078431266415">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-52.8571431612482,0" />
+                    End="-46.7346941686235,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-52.8571431612482,0"
-                    Point2="-56.8571431612482,0"
-                    Point3="-56.8571431612482,4" />
+                    Point1="-46.7346941686235,0"
+                    Point2="-50.7346941686235,0"
+                    Point3="-50.7346941686235,-4" />
                   <mssgle:LineSegment
-                    End="-56.8571431612482,6.83333332383796" />
+                    End="-50.7346941686235,-8.10784312664146" />
                   <mssgle:CubicBezierSegment
-                    Point1="-56.8571431612482,6.83333332383796"
-                    Point2="-56.8571431612482,10.833333323838"
-                    Point3="-60.8571431612482,10.833333323838" />
+                    Point1="-50.7346941686235,-8.10784312664146"
+                    Point2="-50.7346941686235,-12.1078431266415"
+                    Point3="-54.7346941686235,-12.1078431266415" />
                   <mssgle:LineSegment
-                    End="-106.214286322496,10.833333323838" />
+                    End="-93.9693883372471,-12.1078431266415" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3687,30 +3629,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
-          TopLeft="317.035714835004,200.276470449149">
+          TopLeft="291.142857637028,196.452941040736">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38.2261906732253,89.0372547874524"
+              EndConnector="-59.6547621474119,80.4343136185222"
               Start="0,0"
-              End="-38.2261906732253,81.5372547874524">
+              End="-59.6547621474119,72.9343136185222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.9299809565961" />
+                    End="0,43.8157901234533" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.9299809565961"
-                    Point2="0,52.9299809565961"
-                    Point3="-4,52.9299809565961" />
+                    Point1="0,43.8157901234533"
+                    Point2="0,47.8157901234533"
+                    Point3="-4,47.8157901234533" />
                   <mssgle:LineSegment
-                    End="-34.2261906732253,52.9299809565961" />
+                    End="-55.6547621474119,47.8157901234533" />
                   <mssgle:CubicBezierSegment
-                    Point1="-34.2261906732253,52.9299809565961"
-                    Point2="-38.2261906732253,52.9299809565961"
-                    Point3="-38.2261906732253,56.9299809565961" />
+                    Point1="-55.6547621474119,47.8157901234533"
+                    Point2="-59.6547621474119,47.8157901234533"
+                    Point3="-59.6547621474119,51.8157901234533" />
                   <mssgle:LineSegment
-                    End="-38.2261906732253,81.5372547874524" />
+                    End="-59.6547621474119,72.9343136185222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3721,30 +3663,68 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri2]"
-          TopLeft="132.550000146351,202.188235153356">
+          TopLeft="100.40714293507,202.188235153356">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="118.926190682095,87.1254900832458"
+              EndConnector="76.4142858878794,74.699019505902"
               Start="0,0"
-              End="118.926190682095,79.6254900832458">
+              End="76.4142858878794,67.199019505902">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5627450416229" />
+                    End="0,40.4063295680247" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,39.5627450416229"
-                    Point2="0,43.5627450416229"
-                    Point3="4,43.5627450416229" />
+                    Point1="0,40.4063295680247"
+                    Point2="0,44.4063295680247"
+                    Point3="4,44.4063295680247" />
                   <mssgle:LineSegment
-                    End="114.926190682095,43.5627450416229" />
+                    End="72.4142858878794,44.4063295680247" />
                   <mssgle:CubicBezierSegment
-                    Point1="114.926190682095,43.5627450416229"
-                    Point2="118.926190682095,43.5627450416229"
-                    Point3="118.926190682095,47.5627450416229" />
+                    Point1="72.4142858878794,44.4063295680247"
+                    Point2="76.4142858878794,44.4063295680247"
+                    Point3="76.4142858878794,48.4063295680247" />
                   <mssgle:LineSegment
-                    End="118.926190682095,79.6254900832458" />
+                    End="76.4142858878794,67.199019505902" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="252.999996230006,547.199993741512" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
+          TopLeft="294.163265749247,496.918627051876">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.2367304807593,50.2813666896365"
+              Start="0,0"
+              End="37.2367304807593,42.7813666896365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1406833448182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1406833448182"
+                    Point2="0,25.1406833448182"
+                    Point3="4,25.1406833448182" />
+                  <mssgle:LineSegment
+                    End="33.2367304807593,25.1406833448182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.2367304807593,25.1406833448182"
+                    Point2="37.2367304807593,25.1406833448182"
+                    Point3="37.2367304807593,29.1406833448182" />
+                  <mssgle:LineSegment
+                    End="37.2367304807593,42.7813666896365" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3756,6 +3736,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\demandeAnalyse">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\detailsdemandeanalyse">
     <Properties>
@@ -3797,19 +3790,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\medecin">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\demandeAnalyse">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

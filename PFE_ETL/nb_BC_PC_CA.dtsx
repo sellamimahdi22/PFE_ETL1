@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{6A2430FE-194E-449D-A01F-F4E835A3B6F6}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{0E838A5E-C489-4A80-AB62-344156962779}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -251,7 +251,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[Dim_BC_PC_CA]</property>
+                  name="OpenRowset">[dbo].[Dim_BC_ProduitCommander]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -312,25 +312,19 @@
                       cachedDataType="i4"
                       cachedName="idcommande"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idcommande]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idcommande]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idcommande]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[numcommande]"
                       cachedDataType="nText"
                       cachedName="numcommande"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[numcommande]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[numcommande]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[numcommande]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[datecommande]"
                       cachedDataType="dbTimeStamp"
                       cachedName="datecommande"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[datecommande]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[datecommande]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddetailscommande]"
-                      cachedDataType="i4"
-                      cachedName="iddetailscommande"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailscommande]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[iddetailscommande]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[datecommande]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[qte]"
                       cachedDataType="numeric"
@@ -338,14 +332,13 @@
                       cachedPrecision="18"
                       cachedScale="3"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[qte]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[qte]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[qte]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idproduit]"
                       cachedDataType="i4"
                       cachedName="idproduit"
-                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idproduit]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idproduit]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idproduit]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[prixtotal]"
                       cachedDataType="numeric"
@@ -353,7 +346,7 @@
                       cachedPrecision="18"
                       cachedScale="3"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[prixtotal]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[prixtotal]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[prixtotal]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[stock]"
                       cachedDataType="numeric"
@@ -361,17 +354,41 @@
                       cachedPrecision="18"
                       cachedScale="3"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[stock]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[stock]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[stock]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nomcomplet]"
                       cachedDataType="wstr"
                       cachedLength="250"
                       cachedName="nomcomplet"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomcomplet]"
-                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[nomcomplet]" />
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[nomcomplet]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idtypeproduit]"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type_produit]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="type_produit"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_produit]"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[type_produit]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddetailscommande]"
+                      cachedDataType="i4"
+                      cachedName="iddetailscommande"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailscommande]"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[iddetailscommande]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idproduit]"
+                      dataType="i4"
+                      name="idproduit" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idcommande]"
                       dataType="i4"
@@ -385,19 +402,11 @@
                       dataType="dbTimeStamp"
                       name="datecommande" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailscommande]"
-                      dataType="i4"
-                      name="iddetailscommande" />
-                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[qte]"
                       dataType="numeric"
                       name="qte"
                       precision="18"
                       scale="3" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idproduit]"
-                      dataType="i4"
-                      name="idproduit" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[prixtotal]"
                       dataType="numeric"
@@ -415,6 +424,23 @@
                       dataType="wstr"
                       length="250"
                       name="nomcomplet" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_produit]"
+                      dataType="wstr"
+                      length="30"
+                      name="type_produit" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idtypeproduit]"
+                      dataType="i4"
+                      name="idtypeproduit" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailscommande]"
+                      dataType="i4"
+                      name="iddetailscommande" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_BC_ProduitCommander]"
+                      dataType="i4"
+                      name="Id_Dim_BC_ProduitCommander" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -980,6 +1006,11 @@
                       cachedLength="250"
                       cachedName="nomcomplet"
                       lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[nomcomplet]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idtypeproduit]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1115,6 +1146,296 @@
                           name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[nomcomplet]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]"
+                      name="idtypeproduit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion].Columns[idtypeproduit]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Jointure de fusion 2"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idtypeproduit]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[idcommande]"
+                      cachedDataType="i4"
+                      cachedName="idcommande"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idcommande]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[numcommande]"
+                      cachedDataType="nText"
+                      cachedName="numcommande"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[numcommande]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[datecommande]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecommande"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[datecommande]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[iddetailscommande]"
+                      cachedDataType="i4"
+                      cachedName="iddetailscommande"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[iddetailscommande]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[qte]"
+                      cachedDataType="numeric"
+                      cachedName="qte"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[qte]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[idproduit]"
+                      cachedDataType="i4"
+                      cachedName="idproduit"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idproduit]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[prixtotal]"
+                      cachedDataType="numeric"
+                      cachedName="prixtotal"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[prixtotal]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[stock]"
+                      cachedDataType="numeric"
+                      cachedName="stock"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[stock]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[nomcomplet]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="nomcomplet"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[nomcomplet]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée droite de jointure de fusion].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri].Columns[idtypeproduit]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée droite de jointure de fusion].Columns[type_produit]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="type_produit"
+                      lineageId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri].Columns[type_produit]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idcommande]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idcommande]"
+                      name="idcommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[idcommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[numcommande]"
+                      dataType="nText"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[numcommande]"
+                      name="numcommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[numcommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[datecommande]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[datecommande]"
+                      name="datecommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[datecommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[iddetailscommande]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[iddetailscommande]"
+                      name="iddetailscommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[iddetailscommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[qte]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[qte]"
+                      name="qte"
+                      precision="18"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[qte]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idproduit]"
+                      name="idproduit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[idproduit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[prixtotal]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[prixtotal]"
+                      name="prixtotal"
+                      precision="18"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[prixtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[stock]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[stock]"
+                      name="stock"
+                      precision="18"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[stock]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[nomcomplet]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[nomcomplet]"
+                      name="nomcomplet">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[nomcomplet]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]"
+                      name="idtypeproduit"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion].Columns[idtypeproduit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[type_produit]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion].Columns[type_produit]"
+                      name="type_produit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée droite de jointure de fusion].Columns[type_produit]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1210,6 +1531,15 @@
                       length="250"
                       lineageId="Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].Columns[nomcomplet]"
                       name="nomcomplet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].ExternalColumns[idtypeproduit]"
+                      lineageId="Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]"
+                      name="idtypeproduit"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1358,6 +1688,11 @@
                       length="250"
                       lineageId="Package\Tâche de flux de données\produit.Outputs[Sortie d'erreur de source OLE DB].Columns[nomcomplet]"
                       name="nomcomplet" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\produit.Outputs[Sortie d'erreur de source OLE DB].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\produit.Outputs[Sortie d'erreur de source OLE DB].Columns[idtypeproduit]"
+                      name="idtypeproduit" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1755,6 +2090,22 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 2.Inputs[Entrée de tri].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      lineageId="Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1806,6 +2157,19 @@
                           dataType="System.Int32"
                           description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
                           name="SortColumnId">#{Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].Columns[nomcomplet]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri].Columns[idtypeproduit]"
+                      name="idtypeproduit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2064,6 +2428,580 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Tâche de flux de données\Trier 4"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 4"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri].Columns[type_produit]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="type_produit"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[type_produit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri].Columns[idtypeproduit]"
+                      name="idtypeproduit"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri].Columns[type_produit]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri].Columns[type_produit]"
+                      name="type_produit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[type_produit]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Trier 5"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 5"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[idcommande]"
+                      cachedDataType="i4"
+                      cachedName="idcommande"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idcommande]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[numcommande]"
+                      cachedDataType="nText"
+                      cachedName="numcommande"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[numcommande]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[datecommande]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecommande"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[datecommande]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[iddetailscommande]"
+                      cachedDataType="i4"
+                      cachedName="iddetailscommande"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[iddetailscommande]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[qte]"
+                      cachedDataType="numeric"
+                      cachedName="qte"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[qte]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[idproduit]"
+                      cachedDataType="i4"
+                      cachedName="idproduit"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idproduit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[prixtotal]"
+                      cachedDataType="numeric"
+                      cachedName="prixtotal"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[prixtotal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[stock]"
+                      cachedDataType="numeric"
+                      cachedName="stock"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[stock]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[nomcomplet]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="nomcomplet"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[nomcomplet]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      lineageId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idcommande]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idcommande]"
+                      name="idcommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idcommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[numcommande]"
+                      dataType="nText"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[numcommande]"
+                      name="numcommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[numcommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[datecommande]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[datecommande]"
+                      name="datecommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[datecommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[iddetailscommande]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[iddetailscommande]"
+                      name="iddetailscommande">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[iddetailscommande]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[qte]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[qte]"
+                      name="qte"
+                      precision="18"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[qte]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idproduit]"
+                      name="idproduit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idproduit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[prixtotal]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[prixtotal]"
+                      name="prixtotal"
+                      precision="18"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[prixtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[stock]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[stock]"
+                      name="stock"
+                      precision="18"
+                      scale="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[stock]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[nomcomplet]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[nomcomplet]"
+                      name="nomcomplet">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[nomcomplet]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri].Columns[idtypeproduit]"
+                      name="idtypeproduit"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion].Columns[idtypeproduit]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\type produit"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="type produit"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[TypeProduit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\type produit.Connections[OleDbConnection]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].ExternalColumns[idtypeproduit]"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[idtypeproduit]"
+                      name="idtypeproduit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[type_produit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].ExternalColumns[type_produit]"
+                      length="30"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].Columns[type_produit]"
+                      name="type_produit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].ExternalColumns[idtypeproduit]"
+                      dataType="i4"
+                      name="idtypeproduit" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].ExternalColumns[type_produit]"
+                      dataType="wstr"
+                      length="30"
+                      name="type_produit" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB].ExternalColumns[idcompteurSerieInterne]"
+                      dataType="i4"
+                      name="idcompteurSerieInterne" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[idtypeproduit]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[idtypeproduit]"
+                      name="idtypeproduit" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[type_produit]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[type_produit]"
+                      name="type_produit" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\type produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -2073,9 +3011,14 @@
               startId="Package\Tâche de flux de données\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
-              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              endId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri]"
               name="Sortie de jointure de fusion"
               startId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
+              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de jointure de fusion"
+              startId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
               endId="Package\Tâche de flux de données\Trier 1.Inputs[Entrée de tri]"
@@ -2091,6 +3034,11 @@
               endId="Package\Tâche de flux de données\Trier 2.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
               startId="Package\Tâche de flux de données\produit.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
+              endId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\type produit.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de tri]"
               endId="Package\Tâche de flux de données\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
@@ -2111,6 +3059,16 @@
               endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri4]"
+              endId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri5]"
+              endId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2141,71 +3099,87 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion 1"
+          TopLeft="512.166645768616,216.133335880704" />
+        <NodeLayout
           Size="108,41.6"
           Id="Package\Tâche de flux de données\Trier 2"
           TopLeft="549.166644844745,110.933334214952" />
-        <NodeLayout
-          Size="160,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion"
-          TopLeft="215.833324756888,214.93333504147" />
-        <NodeLayout
-          Size="105.6,41.6"
-          Id="Package\Tâche de flux de données\produit"
-          TopLeft="530.833312239913,39.0000003099442" />
-        <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion 1"
-          TopLeft="534.166645440791,264.133335165448" />
-        <NodeLayout
-          Size="108,41.6"
-          Id="Package\Tâche de flux de données\Trier 1"
-          TopLeft="338.333319889175,110.933334214952" />
-        <NodeLayout
-          Size="108,41.6"
-          Id="Package\Tâche de flux de données\Trier 3"
-          TopLeft="353.333319293129,294.666669008467" />
         <NodeLayout
           Size="155.2,41.6"
           Id="Package\Tâche de flux de données\detailcommande"
           TopLeft="304.99998788039,33.8000002686183" />
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="570.833310650456,356.866669235759" />
+          Size="104,41.6"
+          Id="Package\Tâche de flux de données\Trier 4"
+          TopLeft="756.999988719821,105.799998673797" />
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\Tâche de flux de données\Trier 3"
+          TopLeft="353.333319293129,294.666669008467" />
         <NodeLayout
           Size="100,41.6"
           Id="Package\Tâche de flux de données\Trier"
           TopLeft="127.499994933605,108.333334194289" />
         <NodeLayout
+          Size="124,41.6"
+          Id="Package\Tâche de flux de données\type produit"
+          TopLeft="742.999988928437,37.9999994337559" />
+        <NodeLayout
+          Size="105.6,41.6"
+          Id="Package\Tâche de flux de données\produit"
+          TopLeft="530.833312239913,39.0000003099442" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion"
+          TopLeft="215.833324756888,214.93333504147" />
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\Tâche de flux de données\Trier 1"
+          TopLeft="338.333319889175,110.933334214952" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion 2"
+          TopLeft="745.999988883734,206.799997347593" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="787.999988257885,356.799994933605" />
+        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Tâche de flux de données\commande"
           TopLeft="95.8333295252589,33.8000002686183" />
+        <NodeLayout
+          Size="104,41.6"
+          Id="Package\Tâche de flux de données\Trier 5"
+          TopLeft="596.999991104007,356.799995112419" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="382.59998788039,75.4000002686183">
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri5]"
+          TopLeft="808.999988719821,147.399998673797">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.73333200878574,35.5333339463341"
+              EndConnector="14.6000001639127,59.3999986737963"
               Start="0,0"
-              End="9.73333200878574,28.0333339463341">
+              End="14.6000001639127,51.8999986737963">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.766666973167" />
+                    End="0,25.6999993368982" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.766666973167"
-                    Point2="0,17.766666973167"
-                    Point3="4,17.766666973167" />
+                    Point1="0,25.6999993368982"
+                    Point2="0,29.6999993368982"
+                    Point3="4,29.6999993368982" />
                   <mssgle:LineSegment
-                    End="5.73333200878574,17.766666973167" />
+                    End="10.6000001639127,29.6999993368982" />
                   <mssgle:CubicBezierSegment
-                    Point1="5.73333200878574,17.766666973167"
-                    Point2="9.73333200878574,17.766666973167"
-                    Point3="9.73333200878574,21.766666973167" />
+                    Point1="10.6000001639127,29.6999993368982"
+                    Point2="14.6000001639127,29.6999993368982"
+                    Point3="14.6000001639127,33.6999993368982" />
                   <mssgle:LineSegment
-                    End="9.73333200878574,28.0333339463341" />
+                    End="14.6000001639127,51.8999986737963" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2215,65 +3189,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
-          TopLeft="618.566645440791,305.733335165448">
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri4]"
+          TopLeft="664.999991104007,356.799995112419">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="37.8666652096643,51.1333340703117"
+              EndConnector="134.066664446394,-108.399997764826"
               Start="0,0"
-              End="37.8666652096643,43.6333340703117">
+              End="134.066664446394,-100.899997764826">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5666670351558" />
+                    End="0,-50.5331529285592" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.5666670351558"
-                    Point2="0,25.5666670351558"
-                    Point3="4,25.5666670351558" />
+                    Point1="0,-50.5331529285592"
+                    Point2="0,-54.5331529285592"
+                    Point3="4,-54.5331529285592" />
                   <mssgle:LineSegment
-                    End="33.8666652096643,25.5666670351558" />
+                    End="130.066664446394,-54.5331529285592" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.8666652096643,25.5666670351558"
-                    Point2="37.8666652096643,25.5666670351558"
-                    Point3="37.8666652096643,29.5666670351558" />
+                    Point1="130.066664446394,-54.5331529285592"
+                    Point2="134.066664446394,-54.5331529285592"
+                    Point3="134.066664446394,-58.5331529285592" />
                   <mssgle:LineSegment
-                    End="37.8666652096643,43.6333340703117" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
-          TopLeft="295.833324756888,256.53333504147">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.499994536241,38.1333339669969"
-              Start="0,0"
-              End="111.499994536241,30.6333339669969">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.0666669834984" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.0666669834984"
-                    Point2="0,19.0666669834984"
-                    Point3="4,19.0666669834984" />
-                  <mssgle:LineSegment
-                    End="107.499994536241,19.0666669834984" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107.499994536241,19.0666669834984"
-                    Point2="111.499994536241,19.0666669834984"
-                    Point3="111.499994536241,23.0666669834984" />
-                  <mssgle:LineSegment
-                    End="111.499994536241,30.6333339669969" />
+                    End="134.066664446394,-100.899997764826" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2284,30 +3224,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
-          TopLeft="603.166644844745,152.533334214952">
+          TopLeft="599.866645306681,152.533334214952">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.4000005960463,111.600000950495"
+              EndConnector="0,63.6000016657516"
               Start="0,0"
-              End="15.4000005960463,104.100000950495">
+              End="0,56.1000016657516">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.8000004752477" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.8000004752477"
-                    Point2="0,55.8000004752477"
-                    Point3="4,55.8000004752477" />
-                  <mssgle:LineSegment
-                    End="11.4000005960463,55.8000004752477" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.4000005960463,55.8000004752477"
-                    Point2="15.4000005960463,55.8000004752477"
-                    Point3="15.4000005960463,59.8000004752477" />
-                  <mssgle:LineSegment
-                    End="15.4000005960463,104.100000950495" />
+                    End="0,56.1000016657516" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2318,30 +3246,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri2]"
-          TopLeft="461.333319293129,315.466669008467">
+          TopLeft="423.999985959796,294.666669008467">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="72.8333261476625,-30.5333338430193"
+              EndConnector="145.766659808821,-36.9333331277633"
               Start="0,0"
-              End="65.3333261476625,-30.5333338430193">
+              End="145.766659808821,-29.4333331277633">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="32.4166630738313,0" />
+                    End="0,-14.5862122758795" />
                   <mssgle:CubicBezierSegment
-                    Point1="32.4166630738313,0"
-                    Point2="36.4166630738313,0"
-                    Point3="36.4166630738313,-4" />
+                    Point1="0,-14.5862122758795"
+                    Point2="0,-18.5862122758795"
+                    Point3="4,-18.5862122758795" />
                   <mssgle:LineSegment
-                    End="36.4166630738313,-26.5333338430193" />
+                    End="141.766659808821,-18.5862122758795" />
                   <mssgle:CubicBezierSegment
-                    Point1="36.4166630738313,-26.5333338430193"
-                    Point2="36.4166630738313,-30.5333338430193"
-                    Point3="40.4166630738313,-30.5333338430193" />
+                    Point1="141.766659808821,-18.5862122758795"
+                    Point2="145.766659808821,-18.5862122758795"
+                    Point3="145.766659808821,-22.5862122758795" />
                   <mssgle:LineSegment
-                    End="65.3333261476625,-30.5333338430193" />
+                    End="145.766659808821,-29.4333331277633" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2419,6 +3347,28 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
+          TopLeft="806.999988824129,79.5999994337559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.1999992400411"
+              Start="0,0"
+              End="0,18.6999992400411">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6999992400411" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
           TopLeft="583.633312239913,80.6000003099442">
           <EdgeLayout.Curve>
@@ -2486,11 +3436,147 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="382.59998788039,75.4000002686183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.73333200878574,35.5333339463341"
+              Start="0,0"
+              End="9.73333200878574,28.0333339463341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.766666973167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.766666973167"
+                    Point2="0,17.766666973167"
+                    Point3="4,17.766666973167" />
+                  <mssgle:LineSegment
+                    End="5.73333200878574,17.766666973167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.73333200878574,17.766666973167"
+                    Point2="9.73333200878574,17.766666973167"
+                    Point3="9.73333200878574,21.766666973167" />
+                  <mssgle:LineSegment
+                    End="9.73333200878574,28.0333339463341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
+          TopLeft="848.133322217067,248.399997347593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.2666660408179,108.399997586012"
+              Start="0,0"
+              End="18.2666660408179,100.899997586012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.0236724890132" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.0236724890132"
+                    Point2="0,44.0236724890132"
+                    Point3="4,44.0236724890132" />
+                  <mssgle:LineSegment
+                    End="14.2666660408179,44.0236724890132" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.2666660408179,44.0236724890132"
+                    Point2="18.2666660408179,44.0236724890132"
+                    Point3="18.2666660408179,48.0236724890132" />
+                  <mssgle:LineSegment
+                    End="18.2666660408179,100.899997586012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
+          TopLeft="623.366645768617,257.733335880704">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.63334533539035,99.0666592317156"
+              Start="0,0"
+              End="9.63334533539035,91.5666592317156">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.178675704527" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.178675704527"
+                    Point2="0,49.178675704527"
+                    Point3="4,49.178675704527" />
+                  <mssgle:LineSegment
+                    End="5.63334533539035,49.178675704527" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.63334533539035,49.178675704527"
+                    Point2="9.63334533539035,49.178675704527"
+                    Point3="9.63334533539035,53.178675704527" />
+                  <mssgle:LineSegment
+                    End="9.63334533539035,91.5666592317156" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
+          TopLeft="295.833324756888,256.53333504147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.499994536241,38.1333339669969"
+              Start="0,0"
+              End="111.499994536241,30.6333339669969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0666669834984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0666669834984"
+                    Point2="0,19.0666669834984"
+                    Point3="4,19.0666669834984" />
+                  <mssgle:LineSegment
+                    End="107.499994536241,19.0666669834984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.499994536241,19.0666669834984"
+                    Point2="111.499994536241,19.0666669834984"
+                    Point3="111.499994536241,23.0666669834984" />
+                  <mssgle:LineSegment
+                    End="111.499994536241,30.6333339669969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\produit">
+    design-time-name="Package\Tâche de flux de données\detailcommande">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2503,7 +3589,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\detailcommande">
+    design-time-name="Package\Tâche de flux de données\type produit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\produit">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

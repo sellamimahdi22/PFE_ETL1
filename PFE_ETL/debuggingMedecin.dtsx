@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="debuggingMedecin"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{545D2A50-6008-4E51-A7BB-7DBC8CE82E03}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{4278DBA1-A5AB-4184-BA85-2148515168C9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -40,7 +40,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>DemandeparMed.dtsx</PackageName>
+              <PackageName>DimMedecin.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -112,7 +112,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}"
-          SQLTask:SqlStatementSource="truncate table DimMedecin;&#xA;truncate table DimSpecialite;&#xA;truncate table FactMedecin;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;&#xA;truncate table dbo.Fact_Medecin&#xA;truncate table dbo.Dim_Medecin&#xA;truncate table dbo.Dim_Specialite" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

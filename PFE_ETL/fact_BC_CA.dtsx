@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{6E5B13D2-BFF2-4971-88DF-D03ED373861C}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{5EB8BB05-42A5-4538-9727-3FF02F2E5349}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[Fact_Stock]</property>
+                  name="OpenRowset">[dbo].[Fact_Stocks_CA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -116,12 +116,6 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[numcommande]"
                       lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numcommande]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[datecommande]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="datecommande"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[datecommande]"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[datecommande]" />
-                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[totalttc]"
                       cachedDataType="numeric"
                       cachedName="totalttc"
@@ -130,30 +124,18 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[totalttc]"
                       lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[totalttc]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idetatcommande]"
-                      cachedDataType="i4"
-                      cachedName="idetatcommande"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailscommande]"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetatcommande]" />
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[designation]"
-                      cachedDataType="nText"
-                      cachedName="designation"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[designation]"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]" />
-                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idfournisseur]"
                       cachedDataType="i4"
                       cachedName="idfournisseur"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idfournisseur]"
-                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[idfournisseur]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idfournisseur]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nomfournisseur]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="nomfournisseur"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomfournisseur]"
-                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[nomfournisseur]" />
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomfournisseur]" />
                     <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[qte]"
                       cachedDataType="numeric"
@@ -185,27 +167,60 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[stock]"
                       lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[stock]" />
                     <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idtypeproduit]"
+                      cachedDataType="i4"
+                      cachedName="idtypeproduit"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idtypeproduit]"
+                      lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[idtypeproduit]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type_produit]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="type_produit"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[typeproduit]"
+                      lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[type_produit]" />
+                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nomcomplet]"
                       cachedDataType="wstr"
                       cachedLength="250"
                       cachedName="nomcomplet"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomcomplet]"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[designation]"
                       lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[nomcomplet]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[datecommande]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecommande"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[datecommandes]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[datecommande]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddetailscommande]"
+                      cachedDataType="i4"
+                      cachedName="iddetailscommande"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[iddetailscommande]"
+                      lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[iddetailscommande]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idfournisseur]"
+                      dataType="i4"
+                      name="idfournisseur" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idcommande]"
                       dataType="i4"
                       name="idcommande" />
                     <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idproduit]"
+                      dataType="i4"
+                      name="idproduit" />
+                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[numcommande]"
                       dataType="nText"
                       name="numcommande" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[datecommande]"
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[datecommandes]"
                       dataType="dbTimeStamp"
-                      name="datecommande" />
+                      name="datecommandes" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[totalttc]"
                       dataType="numeric"
@@ -221,10 +236,6 @@
                       dataType="nText"
                       name="designation" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idfournisseur]"
-                      dataType="i4"
-                      name="idfournisseur" />
-                    <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomfournisseur]"
                       dataType="wstr"
                       length="100"
@@ -235,10 +246,6 @@
                       name="qte"
                       precision="18"
                       scale="3" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idproduit]"
-                      dataType="i4"
-                      name="idproduit" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[prixtotal]"
                       dataType="numeric"
@@ -252,10 +259,26 @@
                       precision="18"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nomcomplet]"
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idtypeproduit]"
+                      dataType="i4"
+                      name="idtypeproduit" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[typeproduit]"
                       dataType="wstr"
-                      length="250"
-                      name="nomcomplet" />
+                      length="30"
+                      name="typeproduit" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_nb_BC]"
+                      dataType="i4"
+                      name="Id_Dim_nb_BC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_BC_ProduitCommander]"
+                      dataType="i4"
+                      name="Id_Dim_BC_ProduitCommander" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_nb_Fournisseur_CA]"
+                      dataType="i4"
+                      name="Id_Dim_nb_Fournisseur_CA" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -298,13 +321,13 @@
                   description="Spécifie l'instruction SQL qui génère la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_nb_BC]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_nb_Fournisseur_CA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_nb_BC]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_nb_Fournisseur_CA]) [refTable]
 where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -336,7 +359,7 @@ where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="numcommande" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datecommande" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="totalttc" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetatcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idfournisseur" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="numcommande" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datecommande" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="totalttc" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="nomfournisseur" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -443,11 +466,12 @@ where [refTable].[idcommande] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[idetatcommande]"
-                      cachedDataType="i4"
-                      cachedName="idetatcommande"
+                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[nomfournisseur]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="nomfournisseur"
                       errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetatcommande]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomfournisseur]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -458,15 +482,15 @@ where [refTable].[idcommande] = ?</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">idetatcommande</property>
+                          name="CopyFromReferenceColumn">nomfournisseur</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[designation]"
-                      cachedDataType="nText"
-                      cachedName="designation"
+                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[idfournisseur]"
+                      cachedDataType="i4"
+                      cachedName="idfournisseur"
                       errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idfournisseur]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -477,7 +501,7 @@ where [refTable].[idcommande] = ?</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">designation</property>
+                          name="CopyFromReferenceColumn">idfournisseur</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -539,13 +563,13 @@ where [refTable].[idcommande] = ?</property>
                   description="Spécifie l'instruction SQL qui génère la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_nb_F_CA]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_nb_BC]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_nb_F_CA]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_nb_BC]) [refTable]
 where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -577,7 +601,7 @@ where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="numcommande" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datecommande" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idfournisseur" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="totalttc" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="nomfournisseur" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="numcommande" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datecommande" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="totalttc" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetatcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -694,37 +718,6 @@ where [refTable].[idcommande] = ?</property>
                   exclusionGroup="1"
                   name="Sortie de recherche avec correspondance"
                   synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[idfournisseur]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[idfournisseur]"
-                      name="idfournisseur"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">idfournisseur</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[nomfournisseur]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      length="100"
-                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[nomfournisseur]"
-                      name="nomfournisseur"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">nomfournisseur</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -773,13 +766,13 @@ where [refTable].[idcommande] = ?</property>
                   description="Spécifie l'instruction SQL qui génère la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_BC_PC_CA]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_BC_ProduitCommander]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_BC_PC_CA]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_BC_ProduitCommander]) [refTable]
 where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -811,7 +804,7 @@ where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="numcommande" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datecommande" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailscommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="qte" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="idproduit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="prixtotal" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="stock" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="nomcomplet" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idproduit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idcommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="numcommande" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datecommande" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailscommande" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="qte" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="prixtotal" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="stock" dataType="DT_NUMERIC" length="0" precision="18" scale="3" codePage="0"/&gt;&lt;referenceColumn name="nomcomplet" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="type_produit" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idtypeproduit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -894,26 +887,6 @@ where [refTable].[idcommande] = ?</property>
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
                           name="CopyFromReferenceColumn">datecommande</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche 2.Inputs[Entrée de recherche].Columns[iddetailscommande]"
-                      cachedDataType="i4"
-                      cachedName="idetatcommande"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetatcommande]"
-                      name="iddetailscommande"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">iddetailscommande</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1005,6 +978,49 @@ where [refTable].[idcommande] = ?</property>
                           name="CopyFromReferenceColumn">nomcomplet</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[type_produit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="30"
+                      lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[type_produit]"
+                      name="type_produit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">type_produit</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[idtypeproduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[idtypeproduit]"
+                      name="idtypeproduit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">idtypeproduit</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[iddetailscommande]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Recherche 2.Outputs[Sortie de recherche avec correspondance].Columns[iddetailscommande]"
+                      name="iddetailscommande"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">iddetailscommande</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1056,7 +1072,7 @@ where [refTable].[idcommande] = ?</property>
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[Dim_nb_BC]</property>
+                  name="OpenRowset">[dbo].[Dim_nb_Fournisseur_CA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -1140,22 +1156,32 @@ where [refTable].[idcommande] = ?</property>
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetatcommande]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idfournisseur]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idetatcommande]"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetatcommande]"
-                      name="idetatcommande"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idfournisseur]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idfournisseur]"
+                      name="idfournisseur"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]"
-                      dataType="nText"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomfournisseur]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[designation]"
-                      name="designation"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nomfournisseur]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomfournisseur]"
+                      name="nomfournisseur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_nb_Fournisseur_CA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Id_Dim_nb_Fournisseur_CA]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_nb_Fournisseur_CA]"
+                      name="Id_Dim_nb_Fournisseur_CA"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1179,13 +1205,18 @@ where [refTable].[idcommande] = ?</property>
                       precision="18"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idetatcommande]"
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idfournisseur]"
                       dataType="i4"
-                      name="idetatcommande" />
+                      name="idfournisseur" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[designation]"
-                      dataType="nText"
-                      name="designation" />
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nomfournisseur]"
+                      dataType="wstr"
+                      length="100"
+                      name="nomfournisseur" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Id_Dim_nb_Fournisseur_CA]"
+                      dataType="i4"
+                      name="Id_Dim_nb_Fournisseur_CA" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1193,6 +1224,16 @@ where [refTable].[idcommande] = ?</property>
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Id_Dim_nb_Fournisseur_CA]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Id_Dim_nb_Fournisseur_CA]"
+                      name="Id_Dim_nb_Fournisseur_CA" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idfournisseur]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idfournisseur]"
+                      name="idfournisseur" />
                     <outputColumn
                       refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idcommande]"
                       dataType="i4"
@@ -1216,15 +1257,11 @@ where [refTable].[idcommande] = ?</property>
                       precision="18"
                       scale="3" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idetatcommande]"
-                      dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idetatcommande]"
-                      name="idetatcommande" />
-                    <outputColumn
-                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
-                      dataType="nText"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[designation]"
-                      name="designation" />
+                      refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nomfournisseur]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nomfournisseur]"
+                      name="nomfournisseur" />
                     <outputColumn
                       refId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -1295,8 +1332,8 @@ where [refTable].[idcommande] = ?</property>
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="137.6,41.6"
-          Id="Package\Tâche de flux de données\Recherche 1"
-          TopLeft="179.166659547223,123.933334318267" />
+          Id="Package\Tâche de flux de données\Recherche 2"
+          TopLeft="524.499976724388,160.666668034925" />
         <NodeLayout
           Size="128.8,41.6"
           Id="Package\Tâche de flux de données\Recherche"
@@ -1306,42 +1343,46 @@ where [refTable].[idcommande] = ?</property>
           Id="Package\Tâche de flux de données\Source OLE DB"
           TopLeft="146.666660838657,35.5333336157269" />
         <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="429.999993592501,346.999994829297" />
+        <NodeLayout
           Size="137.6,41.6"
-          Id="Package\Tâche de flux de données\Recherche 2"
-          TopLeft="622.499975264074,164.66666797532" />
+          Id="Package\Tâche de flux de données\Recherche 1"
+          TopLeft="187.166659428014,163.933333722221" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
           TopLeft="515.233315418827,78.8666669628355">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-267.266655871604,45.0666673554315"
+              EndConnector="-259.266655990813,85.066666759385"
               Start="0,0"
-              End="-267.266655871604,37.5666673554315">
+              End="-259.266655990813,77.566666759385">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5333336777157" />
+                    End="0,38.5333333796925" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.5333336777157"
-                    Point2="0,22.5333336777157"
-                    Point3="-4,22.5333336777157" />
+                    Point1="0,38.5333333796925"
+                    Point2="0,42.5333333796925"
+                    Point3="-4,42.5333333796925" />
                   <mssgle:LineSegment
-                    End="-263.266655871604,22.5333336777157" />
+                    End="-255.266655990813,42.5333333796925" />
                   <mssgle:CubicBezierSegment
-                    Point1="-263.266655871604,22.5333336777157"
-                    Point2="-267.266655871604,22.5333336777157"
-                    Point3="-267.266655871604,26.5333336777157" />
+                    Point1="-255.266655990813,42.5333333796925"
+                    Point2="-259.266655990813,42.5333333796925"
+                    Point3="-259.266655990813,46.5333333796925" />
                   <mssgle:LineSegment
-                    End="-267.266655871604,37.5666673554315" />
+                    End="-259.266655990813,77.566666759385" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-225.310339654552,27.5333336777157,183.3540234375,11.609375"
+              BoundingBox="-221.310339714157,47.5333333796925,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1368,78 +1409,62 @@ where [refTable].[idcommande] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="316.766659547223,144.733334318267">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="593.299976724388,202.266668034925">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="305.73331571685,35.1333336570528"
+              EndConnector="-84.8999831318873,144.733326794372"
               Start="0,0"
-              End="298.23331571685,35.1333336570528">
+              End="-84.8999831318873,137.233326794372">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="172.645915747514,0" />
+                    End="0,68.3666633971861" />
                   <mssgle:CubicBezierSegment
-                    Point1="172.645915747514,0"
-                    Point2="176.645915747514,0"
-                    Point3="176.645915747514,4" />
+                    Point1="0,68.3666633971861"
+                    Point2="0,72.3666633971861"
+                    Point3="-4,72.3666633971861" />
                   <mssgle:LineSegment
-                    End="176.645915747514,31.1333336570528" />
+                    End="-80.8999831318873,72.3666633971861" />
                   <mssgle:CubicBezierSegment
-                    Point1="176.645915747514,31.1333336570528"
-                    Point2="176.645915747514,35.1333336570528"
-                    Point3="180.645915747514,35.1333336570528" />
+                    Point1="-80.8999831318873,72.3666633971861"
+                    Point2="-84.8999831318873,72.3666633971861"
+                    Point3="-84.8999831318873,76.3666633971861" />
                   <mssgle:LineSegment
-                    End="298.23331571685,35.1333336570528" />
+                    End="-84.8999831318873,137.233326794372" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="84.9689040287636,-17.609375,183.3540234375,11.609375"
+              BoundingBox="-134.127003284694,77.3666633971861,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="433.999993532896,251.999996244907" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance2]"
-          TopLeft="691.299975264074,206.26666797532">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="324.766659428014,183.100000878573">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-178.899981731178,45.7333282695874"
+              EndConnector="199.733317296374,0"
               Start="0,0"
-              End="-178.899981731178,38.2333282695874">
+              End="192.233317296374,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.8666641347937" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.8666641347937"
-                    Point2="0,22.8666641347937"
-                    Point3="-4,22.8666641347937" />
-                  <mssgle:LineSegment
-                    End="-174.899981731178,22.8666641347937" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-174.899981731178,22.8666641347937"
-                    Point2="-178.899981731178,22.8666641347937"
-                    Point3="-178.899981731178,26.8666641347937" />
-                  <mssgle:LineSegment
-                    End="-178.899981731178,38.2333282695874" />
+                    End="192.233317296374,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-181.127002584339,27.8666641347937,183.3540234375,11.609375"
+              BoundingBox="4.43964692943699,5,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1447,22 +1472,22 @@ where [refTable].[idcommande] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Recherche 1">
+    design-time-name="Package\Tâche de flux de données\Recherche 2">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Dim_nb_F_CA]</Value>
+          type="q3:string">[dbo].[Dim_BC_ProduitCommander]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1475,17 +1500,17 @@ where [refTable].[idcommande] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Dim_nb_BC]</Value>
+          type="q3:string">[dbo].[Dim_nb_Fournisseur_CA]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1506,29 +1531,6 @@ where [refTable].[idcommande] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Recherche 2">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_BC_PC_CA]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\Destination OLE DB">
     <Properties>
       <Property>
@@ -1538,6 +1540,29 @@ where [refTable].[idcommande] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Recherche 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_nb_BC]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

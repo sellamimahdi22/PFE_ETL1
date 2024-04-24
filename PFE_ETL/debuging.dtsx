@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="debuging"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{4A6B1B75-3986-46AC-AD90-3FA2D8FEF223}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{2A416F16-CA37-4234-B7F3-813ABB9707FF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>demandeAnalyse.dtsx</PackageName>
+              <PackageName>DimAnalyse.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -71,7 +71,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>branche.dtsx</PackageName>
+              <PackageName>DimBranche.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -88,7 +88,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>Paillase.dtsx</PackageName>
+              <PackageName>DimPaillase.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -151,7 +151,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6C33766C-99AC-439D-8764-6FF8FC85EBF1}"
-          SQLTask:SqlStatementSource="truncate table DimAnalyse;&#xA;truncate table DimBranche;&#xA;truncate table DimPaillasse;&#xA;truncate table FactANAlyse;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="drop table Fact_Analyse;&#xA;drop table Dim_Analyse;&#xA;drop table Dim_Branche;&#xA;drop table Dim_Paillasse;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

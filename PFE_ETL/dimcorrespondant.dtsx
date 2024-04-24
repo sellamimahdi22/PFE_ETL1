@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="dimcorrespondant"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{56BF1AE8-CD12-4C32-B4E2-A343E70D91FA}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{18D0B669-90A1-4700-82FD-3FE4C8A96DFA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -82,8 +82,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\client.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -281,8 +281,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\demandeAna.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -570,7 +570,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[DimCorresp]</property>
+                  name="OpenRowset">[dbo].[Dim_Correspondant]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -726,6 +726,10 @@
                       dataType="wstr"
                       length="150"
                       name="nom_en" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Correspondant]"
+                      dataType="i4"
+                      name="Id_Dim_Correspondant" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -805,8 +809,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\DetailsDemandeAnalyse.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -1815,8 +1819,8 @@
               <connections>
                 <connection
                   refId="Package\Tâche de flux de données\priseencharge.Connections[OleDbConnection]"
-                  connectionManagerID="{254072FC-5327-4750-B4E1-D0725176D216}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLab.stage 1]"
+                  connectionManagerID="{89ACE31F-7268-4C62-AC46-33033B239141}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-M3TSC2F_SQL2022.DBSterosLabStock.stage]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -3129,10 +3133,6 @@
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="108,41.6"
-          Id="Package\Tâche de flux de données\Trier 1"
-          TopLeft="484.166647427613,142.133334462908" />
-        <NodeLayout
-          Size="108,41.6"
           Id="Package\Tâche de flux de données\Trier 5"
           TopLeft="244.999990264575,377.933335186111" />
         <NodeLayout
@@ -3144,13 +3144,13 @@
           Id="Package\Tâche de flux de données\Fractionnement conditionnel"
           TopLeft="73.3333304193286,120.466667458746" />
         <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Tâche de flux de données\DetailsDemandeAnalyse"
-          TopLeft="116.66666203075,24.2666666942172" />
-        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Tâche de flux de données\Destination OLE DB"
           TopLeft="664.166640275056,378.000002768835" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Tâche de flux de données\DetailsDemandeAnalyse"
+          TopLeft="116.66666203075,24.2666666942172" />
         <NodeLayout
           Size="108,41.6"
           Id="Package\Tâche de flux de données\Trier 2"
@@ -3176,9 +3176,9 @@
           Id="Package\Tâche de flux de données\Trier"
           TopLeft="314.166654182806,195.866668223275" />
         <NodeLayout
-          Size="172,41.6"
-          Id="Package\Tâche de flux de données\Fractionnement conditionnel 1"
-          TopLeft="294.29998976787,123.933334152964" />
+          Size="108,41.6"
+          Id="Package\Tâche de flux de données\Trier 1"
+          TopLeft="484.166647427613,142.133334462908" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Tâche de flux de données\priseencharge"
@@ -3188,43 +3188,13 @@
           Id="Package\Tâche de flux de données\client"
           TopLeft="499.166646831567,49.4000003925959" />
         <NodeLayout
+          Size="172,41.6"
+          Id="Package\Tâche de flux de données\Fractionnement conditionnel 1"
+          TopLeft="294.29998976787,123.933334152964" />
+        <NodeLayout
           Size="140,41.6"
           Id="Package\Tâche de flux de données\demandeAna"
           TopLeft="305.833321180609,48.5333337190417" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri4]"
-          TopLeft="179.833328333166,234.000001363754">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="75.3999982118606,44.2000008471807"
-              Start="0,0"
-              End="75.3999982118606,36.7000008471807">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1000004235904" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1000004235904"
-                    Point2="0,22.1000004235904"
-                    Point3="4,22.1000004235904" />
-                  <mssgle:LineSegment
-                    End="71.3999982118606,22.1000004235904" />
-                  <mssgle:CubicBezierSegment
-                    Point1="71.3999982118606,22.1000004235904"
-                    Point2="75.3999982118606,22.1000004235904"
-                    Point3="75.3999982118606,26.1000004235904" />
-                  <mssgle:LineSegment
-                    End="75.3999982118606,36.7000008471807" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
           TopLeft="657.333310021295,256.000000826518">
@@ -3631,7 +3601,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,6.63981148375407,30.436171875,9.5537109375"
+              BoundingBox="-15.2180859375,6.63981148375405,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3669,11 +3639,45 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri4]"
+          TopLeft="179.833328333166,234.000001363754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.3999982118606,44.2000008471807"
+              Start="0,0"
+              End="75.3999982118606,36.7000008471807">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1000004235904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1000004235904"
+                    Point2="0,22.1000004235904"
+                    Point3="4,22.1000004235904" />
+                  <mssgle:LineSegment
+                    End="71.3999982118606,22.1000004235904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.3999982118606,22.1000004235904"
+                    Point2="75.3999982118606,22.1000004235904"
+                    Point3="75.3999982118606,26.1000004235904" />
+                  <mssgle:LineSegment
+                    End="75.3999982118606,36.7000008471807" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\DetailsDemandeAnalyse">
+    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3686,7 +3690,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    design-time-name="Package\Tâche de flux de données\DetailsDemandeAnalyse">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

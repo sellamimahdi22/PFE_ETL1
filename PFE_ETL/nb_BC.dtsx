@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{4AFFD543-181F-451B-B055-436397EBFACE}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{8BAC72BF-EA90-4652-BA21-672CB79188C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -297,7 +297,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[Dim_nb_BC]</property>
+                  name="OpenRowset">[dbo].[Dim_nb_BC]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -421,6 +421,10 @@
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[designation]"
                       dataType="nText"
                       name="designation" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_nb_BC]"
+                      dataType="i4"
+                      name="Id_Dim_nb_BC" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1104,13 +1108,13 @@
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\Tâche de flux de données\etatcommande"
-          TopLeft="386.666651301915,36.4000002892812" />
+          TopLeft="417.666650839979,14.4000006171067" />
         <NodeLayout
           Size="100,41.6"
           Id="Package\Tâche de flux de données\Trier"
-          TopLeft="160.833326942391,107.466667520735" />
+          TopLeft="223.833326003618,130.466667178008" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="156.8,41.6"
           Id="Package\Tâche de flux de données\commande"
           TopLeft="193.333325650957,19.0666668181949" />
         <NodeLayout
@@ -1119,30 +1123,18 @@
           TopLeft="270.833322571384,227.066668471231" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
-          TopLeft="258.133325650957,60.6666668181949">
+          TopLeft="272.783325827288,60.6666668181949">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-47.2999987085661,46.8000007025401"
+              EndConnector="0,69.8000003598131"
               Start="0,0"
-              End="-47.2999987085661,39.3000007025401">
+              End="0,62.3000003598131">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4000003512701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.4000003512701"
-                    Point2="0,23.4000003512701"
-                    Point3="-4,23.4000003512701" />
-                  <mssgle:LineSegment
-                    End="-43.2999987085661,23.4000003512701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-43.2999987085661,23.4000003512701"
-                    Point2="-47.2999987085661,23.4000003512701"
-                    Point3="-47.2999987085661,27.4000003512701" />
-                  <mssgle:LineSegment
-                    End="-47.2999987085661,39.3000007025401" />
+                    End="0,62.3000003598131" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1153,30 +1145,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="460.266651301915,78.0000002892812">
+          TopLeft="489.716650127206,56.0000006171067">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.8999981125194,43.3333340083228"
+              EndConnector="0,65.3333336804973"
               Start="0,0"
-              End="27.8999981125194,35.8333340083228">
+              End="0,57.8333336804973">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.6666670041614" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.6666670041614"
-                    Point2="0,21.6666670041614"
-                    Point3="4,21.6666670041614" />
-                  <mssgle:LineSegment
-                    End="23.8999981125194,21.6666670041614" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.8999981125194,21.6666670041614"
-                    Point2="27.8999981125194,21.6666670041614"
-                    Point3="27.8999981125194,25.6666670041614" />
-                  <mssgle:LineSegment
-                    End="27.8999981125194,35.8333340083228" />
+                    End="0,57.8333336804973" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1255,30 +1235,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
-          TopLeft="210.833326942391,149.066667520735">
+          TopLeft="273.833326003618,172.066667178008">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114.66666229566,78.0000009504955"
+              EndConnector="51.6666632344328,55.0000012932227"
               Start="0,0"
-              End="114.66666229566,70.5000009504955">
+              End="51.6666632344328,47.5000012932227">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.3366342280171" />
+                    End="0,28.6732680949838" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42.3366342280171"
-                    Point2="0,46.3366342280171"
-                    Point3="4,46.3366342280171" />
+                    Point1="0,28.6732680949838"
+                    Point2="0,32.6732680949838"
+                    Point3="4,32.6732680949838" />
                   <mssgle:LineSegment
-                    End="110.66666229566,46.3366342280171" />
+                    End="47.6666632344328,32.6732680949838" />
                   <mssgle:CubicBezierSegment
-                    Point1="110.66666229566,46.3366342280171"
-                    Point2="114.66666229566,46.3366342280171"
-                    Point3="114.66666229566,50.3366342280171" />
+                    Point1="47.6666632344328,32.6732680949838"
+                    Point2="51.6666632344328,32.6732680949838"
+                    Point3="51.6666632344328,36.6732680949838" />
                   <mssgle:LineSegment
-                    End="114.66666229566,70.5000009504955" />
+                    End="51.6666632344328,47.5000012932227" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
