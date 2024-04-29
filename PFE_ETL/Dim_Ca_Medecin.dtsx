@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Dim_Ca_Medecin"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{94D3A447-79E2-45F5-BF49-4F103784CC1F}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{D709B04B-F5D4-46EA-9E80-2B198BAE64EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2130,49 +2130,49 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion 1"
-          TopLeft="660.999990150333,354.399995052815" />
-        <NodeLayout
           Size="188.8,41.6"
           Id="Package\Tâche de flux de données\Fractionnement conditionnel"
           TopLeft="269.999995976687,258.999996140599" />
         <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\Tâche de flux de données\Facture Client"
-          TopLeft="554.999991729856,83.9999987483025" />
-        <NodeLayout
           Size="148,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion"
           TopLeft="171.999997437,359.999994635582" />
-        <NodeLayout
-          Size="104,41.6"
-          Id="Package\Tâche de flux de données\Trier 2"
-          TopLeft="598.999991074205,198.999997034669" />
-        <NodeLayout
-          Size="104,41.6"
-          Id="Package\Tâche de flux de données\Trier 1"
-          TopLeft="311.999995350838,180.99999730289" />
-        <NodeLayout
-          Size="96.8,41.6"
-          Id="Package\Tâche de flux de données\Trier"
-          TopLeft="82.9999987632036,180.99999730289" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="534.166637481088,440.26666432831" />
-        <NodeLayout
-          Size="148,41.6"
-          Id="Package\Tâche de flux de données\demande analyse"
-          TopLeft="296.999995574355,83.9999987483025" />
         <NodeLayout
           Size="112,41.6"
           Id="Package\Tâche de flux de données\medecin"
           TopLeft="80.999998793006,88.9999986737967" />
         <NodeLayout
           Size="104,41.6"
+          Id="Package\Tâche de flux de données\Trier 1"
+          TopLeft="311.999995350838,180.99999730289" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="534.166637481088,440.26666432831" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion 1"
+          TopLeft="660.999990150333,354.399995052815" />
+        <NodeLayout
+          Size="96.8,41.6"
+          Id="Package\Tâche de flux de données\Trier"
+          TopLeft="82.9999987632036,180.99999730289" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Tâche de flux de données\Facture Client"
+          TopLeft="554.999991729856,83.9999987483025" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Tâche de flux de données\demande analyse"
+          TopLeft="296.999995574355,83.9999987483025" />
+        <NodeLayout
+          Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 3"
           TopLeft="384.999994263053,363.999994874001" />
+        <NodeLayout
+          Size="104,41.6"
+          Id="Package\Tâche de flux de données\Trier 2"
+          TopLeft="598.999991074205,198.999997034669" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
           TopLeft="650.999991074205,240.599997034669">
@@ -2471,7 +2471,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Facture Client">
+    design-time-name="Package\Tâche de flux de données\medecin">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2497,7 +2497,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\demande analyse">
+    design-time-name="Package\Tâche de flux de données\Facture Client">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2510,7 +2510,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\medecin">
+    design-time-name="Package\Tâche de flux de données\demande analyse">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

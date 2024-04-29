@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="dimEtatPayement"
   DTS:PackageType="5"
-  DTS:VersionBuild="118"
-  DTS:VersionGUID="{FE88B528-1957-48FB-A76B-26635C70CC77}">
+  DTS:VersionBuild="122"
+  DTS:VersionGUID="{B02888E3-10BD-48F9-80CB-1756593AD379}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4061,87 +4061,87 @@
               name="Sortie de colonne dérivée"
               startId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
               endId="Package\Tâche de flux de données\Trier 7.Inputs[Entrée de tri]"
               name="Sortie de jointure de fusion"
               startId="Package\Tâche de flux de données\Jointure de fusion 3.Outputs[Sortie de jointure de fusion]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion3]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
               endId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
               name="Sortie de jointure de fusion"
               startId="Package\Tâche de flux de données\Jointure de fusion 2.Outputs[Sortie de jointure de fusion]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
               endId="Package\Tâche de flux de données\Trier 5.Inputs[Entrée de tri]"
               name="Sortie de jointure de fusion"
               startId="Package\Tâche de flux de données\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion3]"
               endId="Package\Tâche de flux de données\Trier 6.Inputs[Entrée de tri]"
               name="Sortie de jointure de fusion"
               startId="Package\Tâche de flux de données\Jointure de fusion 1.Outputs[Sortie de jointure de fusion]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB4]"
-              endId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri]"
+              endId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\typeclient.Outputs[Sortie de source OLE DB]" />
-            <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
-              endId="Package\Tâche de flux de données\Trier 3.Inputs[Entrée de tri]"
-              name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\facturereglement.Outputs[Sortie de source OLE DB]" />
+              startId="Package\Tâche de flux de données\demandeanayse.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
               endId="Package\Tâche de flux de données\Trier 2.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
               startId="Package\Tâche de flux de données\factureclient.Outputs[Sortie de source OLE DB]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
               endId="Package\Tâche de flux de données\Trier 1.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
               startId="Package\Tâche de flux de données\client.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-              endId="Package\Tâche de flux de données\Trier.Inputs[Entrée de tri]"
+              endId="Package\Tâche de flux de données\Trier 4.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\demandeanayse.Outputs[Sortie de source OLE DB]" />
+              startId="Package\Tâche de flux de données\typeclient.Outputs[Sortie de source OLE DB]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri2]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
+              endId="Package\Tâche de flux de données\Trier 3.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\facturereglement.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri6]"
+              endId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Tâche de flux de données\Trier 7.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri]"
               endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 2.Outputs[Sortie de tri]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri4]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri1]"
               endId="Package\Tâche de flux de données\Jointure de fusion 3.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 3.Outputs[Sortie de tri]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri5]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri2]"
               endId="Package\Tâche de flux de données\Jointure de fusion 3.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 6.Outputs[Sortie de tri]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri1]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri3]"
               endId="Package\Tâche de flux de données\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier.Outputs[Sortie de tri]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri4]"
               endId="Package\Tâche de flux de données\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 1.Outputs[Sortie de tri]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri6]"
+              refId="Package\Tâche de flux de données.Paths[Sortie de tri5]"
               endId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 4.Outputs[Sortie de tri]" />
             <path
               refId="Package\Tâche de flux de données.Paths[Sortie de tri7]"
-              endId="Package\Tâche de flux de données\Jointure de fusion 2.Inputs[Entrée gauche de jointure de fusion]"
-              name="Sortie de tri"
-              startId="Package\Tâche de flux de données\Trier 7.Outputs[Sortie de tri]" />
-            <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de tri3]"
               endId="Package\Tâche de flux de données\Jointure de fusion 1.Inputs[Entrée droite de jointure de fusion]"
               name="Sortie de tri"
               startId="Package\Tâche de flux de données\Trier 5.Outputs[Sortie de tri]" />
@@ -4175,61 +4175,21 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\Tâche de flux de données\demandeanayse"
-          TopLeft="119.999998211861,41.2499993853271" />
-        <NodeLayout
-          Size="99.2,41.6"
-          Id="Package\Tâche de flux de données\client"
-          TopLeft="323.749995175749,41.2499993853271" />
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Tâche de flux de données\facturereglement"
-          TopLeft="757.49998871237,37.4999994412065" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Tâche de flux de données\factureclient"
-          TopLeft="516.249992307276,41.2499993853271" />
-        <NodeLayout
-          Size="116,41.6"
-          Id="Package\Tâche de flux de données\typeclient"
-          TopLeft="1132.49998312444,51.2499992363155" />
-        <NodeLayout
-          Size="96.8,41.6"
-          Id="Package\Tâche de flux de données\Trier"
-          TopLeft="157.499997727573,128.749998081476" />
+          Size="104,41.6"
+          Id="Package\Tâche de flux de données\Trier 3"
+          TopLeft="772.499988563359,104.999998435378" />
         <NodeLayout
           Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 1"
           TopLeft="309.999995455146,114.999998286366" />
         <NodeLayout
           Size="104,41.6"
-          Id="Package\Tâche de flux de données\Trier 2"
-          TopLeft="529.99999217689,112.499998323619" />
-        <NodeLayout
-          Size="104,41.6"
-          Id="Package\Tâche de flux de données\Trier 3"
-          TopLeft="772.499988563359,104.999998435378" />
-        <NodeLayout
-          Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 4"
           TopLeft="1209.9999820441,152.499997727573" />
-        <NodeLayout
-          Size="148,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion"
-          TopLeft="206.999997243285,246.249996330589" />
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion 1"
-          TopLeft="518.249992605299,306.249995436519" />
         <NodeLayout
           Size="155.2,41.6"
           Id="Package\Tâche de flux de données\Jointure de fusion 2"
           TopLeft="1063.24998448417,246.249996330589" />
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Tâche de flux de données\Jointure de fusion 3"
-          TopLeft="796.9999884516,369.99999448657" />
         <NodeLayout
           Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 5"
@@ -4239,229 +4199,63 @@
           Id="Package\Tâche de flux de données\Trier 6"
           TopLeft="639.499990798533,423.749993685633" />
         <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion 3"
+          TopLeft="796.9999884516,369.99999448657" />
+        <NodeLayout
+          Size="99.2,41.6"
+          Id="Package\Tâche de flux de données\client"
+          TopLeft="323.749995175749,41.2499993853271" />
+        <NodeLayout
+          Size="104,41.6"
+          Id="Package\Tâche de flux de données\Trier 2"
+          TopLeft="529.99999217689,112.499998323619" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Tâche de flux de données\Fractionnement conditionnel"
+          TopLeft="1023.74998474494,394.249995287508" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion"
+          TopLeft="206.999997243285,246.249996330589" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Tâche de flux de données\demandeanayse"
+          TopLeft="119.999998211861,41.2499993853271" />
+        <NodeLayout
+          Size="96.8,41.6"
+          Id="Package\Tâche de flux de données\Trier"
+          TopLeft="157.499997727573,128.749998081476" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Tâche de flux de données\factureclient"
+          TopLeft="516.249992307276,41.2499993853271" />
+        <NodeLayout
+          Size="116,41.6"
+          Id="Package\Tâche de flux de données\typeclient"
+          TopLeft="1132.49998312444,51.2499992363155" />
+        <NodeLayout
           Size="104,41.6"
           Id="Package\Tâche de flux de données\Trier 7"
           TopLeft="898.249986942858,441.249993424863" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="413.749994728714,527.249992679805" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Tâche de flux de données\facturereglement"
+          TopLeft="757.49998871237,37.4999994412065" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Tâche de flux de données\Jointure de fusion 1"
+          TopLeft="518.249992605299,306.249995436519" />
         <NodeLayout
           Size="142.4,41.6"
           Id="Package\Tâche de flux de données\Colonne dérivée"
           TopLeft="1091.99998405576,463.749993089586" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="191.599998211861,82.8499993853271">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="14.2999995157123,45.8999986961484"
-              Start="0,0"
-              End="14.2999995157123,38.3999986961484">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.9499993480742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.9499993480742"
-                    Point2="0,22.9499993480742"
-                    Point3="4,22.9499993480742" />
-                  <mssgle:LineSegment
-                    End="10.2999995157123,22.9499993480742" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.2999995157123,22.9499993480742"
-                    Point2="14.2999995157123,22.9499993480742"
-                    Point3="14.2999995157123,26.9499993480742" />
-                  <mssgle:LineSegment
-                    End="14.2999995157123,38.3999986961484" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
-          TopLeft="373.349995175749,82.8499993853271">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-11.3499997206032,32.1499989010394"
-              Start="0,0"
-              End="-11.3499997206032,24.6499989010394">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.0749994505197" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.0749994505197"
-                    Point2="0,16.0749994505197"
-                    Point3="-4,16.0749994505197" />
-                  <mssgle:LineSegment
-                    End="-7.34999972060319,16.0749994505197" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.34999972060319,16.0749994505197"
-                    Point2="-11.3499997206032,16.0749994505197"
-                    Point3="-11.3499997206032,20.0749994505197" />
-                  <mssgle:LineSegment
-                    End="-11.3499997206032,24.6499989010394" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
-          TopLeft="361.999995455146,156.599998286366">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-57.6666648785274,89.6499980442227"
-              Start="0,0"
-              End="-57.6666648785274,82.1499980442227">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.214704721437" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,49.214704721437"
-                    Point2="0,53.214704721437"
-                    Point3="-4,53.214704721437" />
-                  <mssgle:LineSegment
-                    End="-53.6666648785274,53.214704721437" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-53.6666648785274,53.214704721437"
-                    Point2="-57.6666648785274,53.214704721437"
-                    Point3="-57.6666648785274,57.214704721437" />
-                  <mssgle:LineSegment
-                    End="-57.6666648785274,82.1499980442227" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri1]"
-          TopLeft="205.899997727573,170.349998081476">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="51.7666661823789,75.8999982491136"
-              Start="0,0"
-              End="51.7666661823789,68.3999982491136">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.0529401371744" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.0529401371744"
-                    Point2="0,45.0529401371744"
-                    Point3="4,45.0529401371744" />
-                  <mssgle:LineSegment
-                    End="47.7666661823789,45.0529401371744" />
-                  <mssgle:CubicBezierSegment
-                    Point1="47.7666661823789,45.0529401371744"
-                    Point2="51.7666661823789,45.0529401371744"
-                    Point3="51.7666661823789,49.0529401371744" />
-                  <mssgle:LineSegment
-                    End="51.7666661823789,68.3999982491136" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
-          TopLeft="580.524992242083,82.8499993853271">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.6499989382923"
-              Start="0,0"
-              End="0,22.1499989382923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.1499989382923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
-          TopLeft="277.499997131526,287.849996330589">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.6499985657632"
-              Start="0,0"
-              End="0,47.1499985657632">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.1499985657632" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri2]"
-          TopLeft="581.99999217689,154.099998323619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.8500004284086,152.1499971129"
-              Start="0,0"
-              End="13.8500004284086,144.6499971129">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.07499855645" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,72.07499855645"
-                    Point2="0,76.07499855645"
-                    Point3="4,76.07499855645" />
-                  <mssgle:LineSegment
-                    End="9.85000042840863,76.07499855645" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.85000042840863,76.07499855645"
-                    Point2="13.8500004284086,76.07499855645"
-                    Point3="13.8500004284086,80.07499855645" />
-                  <mssgle:LineSegment
-                    End="13.8500004284086,144.6499971129" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri7]"
           TopLeft="325.999997019768,363.299994896352">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4495,87 +4289,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
-          TopLeft="595.849992605299,347.849995436519">
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri6]"
+          TopLeft="966.249986942858,441.249993424863">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="95.6499981932342,75.8999982491135"
+              EndConnector="174.599997541308,-153.399997094274"
               Start="0,0"
-              End="95.6499981932342,68.3999982491135">
+              End="174.599997541308,-145.899997094274">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.9499991245568" />
+                    End="0,-58.7545442658392" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.9499991245568"
-                    Point2="0,37.9499991245568"
-                    Point3="4,37.9499991245568" />
+                    Point1="0,-58.7545442658392"
+                    Point2="0,-62.7545442658392"
+                    Point3="4,-62.7545442658392" />
                   <mssgle:LineSegment
-                    End="91.6499981932342,37.9499991245568" />
+                    End="170.599997541308,-62.7545442658392" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.6499981932342,37.9499991245568"
-                    Point2="95.6499981932342,37.9499991245568"
-                    Point3="95.6499981932342,41.9499991245568" />
+                    Point1="170.599997541308,-62.7545442658392"
+                    Point2="174.599997541308,-62.7545442658392"
+                    Point3="174.599997541308,-66.7545442658392" />
                   <mssgle:LineSegment
-                    End="95.6499981932342,68.3999982491135" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
-          TopLeft="827.199988637865,79.0999994412065">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.8999989941716"
-              Start="0,0"
-              End="0,18.3999989941716">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.3999989941716" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri4]"
-          TopLeft="824.499988563359,146.599998435378">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50.0999998882414,223.399996051192"
-              Start="0,0"
-              End="50.0999998882414,215.899996051192">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,107.699998025596" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,107.699998025596"
-                    Point2="0,111.699998025596"
-                    Point3="4,111.699998025596" />
-                  <mssgle:LineSegment
-                    End="46.0999998882414,111.699998025596" />
-                  <mssgle:CubicBezierSegment
-                    Point1="46.0999998882414,111.699998025596"
-                    Point2="50.0999998882414,111.699998025596"
-                    Point3="50.0999998882414,115.699998025596" />
-                  <mssgle:LineSegment
-                    End="50.0999998882414,215.899996051192" />
+                    End="174.599997541308,-145.899997094274" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4586,108 +4324,6 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de tri5]"
-          TopLeft="743.499990798533,444.549993685633">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53.4999976530671,-53.7499991990626"
-              Start="0,0"
-              End="45.9999976530671,-53.7499991990626">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="22.7499988265336,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.7499988265336,0"
-                    Point2="26.7499988265336,0"
-                    Point3="26.7499988265336,-4" />
-                  <mssgle:LineSegment
-                    End="26.7499988265336,-49.7499991990626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.7499988265336,-49.7499991990626"
-                    Point2="26.7499988265336,-53.7499991990626"
-                    Point3="30.7499988265336,-53.7499991990626" />
-                  <mssgle:LineSegment
-                    End="45.9999976530671,-53.7499991990626" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
-          TopLeft="874.5999884516,411.59999448657">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="75.6499984912575,29.6499989382924"
-              Start="0,0"
-              End="75.6499984912575,22.1499989382924">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.8249994691462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.8249994691462"
-                    Point2="0,14.8249994691462"
-                    Point3="4,14.8249994691462" />
-                  <mssgle:LineSegment
-                    End="71.6499984912575,14.8249994691462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="71.6499984912575,14.8249994691462"
-                    Point2="75.6499984912575,14.8249994691462"
-                    Point3="75.6499984912575,18.8249994691462" />
-                  <mssgle:LineSegment
-                    End="75.6499984912575,22.1499989382924" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB4]"
-          TopLeft="1190.49998312444,92.8499992363155">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.4999989196658,59.6499984912574"
-              Start="0,0"
-              End="71.4999989196658,52.1499984912574">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.8249992456287" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.8249992456287"
-                    Point2="0,29.8249992456287"
-                    Point3="4,29.8249992456287" />
-                  <mssgle:LineSegment
-                    End="67.4999989196658,29.8249992456287" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.4999989196658,29.8249992456287"
-                    Point2="71.4999989196658,29.8249992456287"
-                    Point3="71.4999989196658,33.8249992456287" />
-                  <mssgle:LineSegment
-                    End="71.4999989196658,52.1499984912574" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri6]"
           TopLeft="1261.9999820441,194.099997727573">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4721,31 +4357,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de tri7]"
-          TopLeft="966.249986942858,441.249993424863">
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri4]"
+          TopLeft="361.999995455146,156.599998286366">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="174.599997541308,-153.399997094274"
+              EndConnector="-57.6666648785274,89.6499980442227"
               Start="0,0"
-              End="174.599997541308,-145.899997094274">
+              End="-57.6666648785274,82.1499980442227">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-58.7545442658392" />
+                    End="0,49.214704721437" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-58.7545442658392"
-                    Point2="0,-62.7545442658392"
-                    Point3="4,-62.7545442658392" />
+                    Point1="0,49.214704721437"
+                    Point2="0,53.214704721437"
+                    Point3="-4,53.214704721437" />
                   <mssgle:LineSegment
-                    End="170.599997541308,-62.7545442658392" />
+                    End="-53.6666648785274,53.214704721437" />
                   <mssgle:CubicBezierSegment
-                    Point1="170.599997541308,-62.7545442658392"
-                    Point2="174.599997541308,-62.7545442658392"
-                    Point3="174.599997541308,-66.7545442658392" />
+                    Point1="-53.6666648785274,53.214704721437"
+                    Point2="-57.6666648785274,53.214704721437"
+                    Point3="-57.6666648785274,57.214704721437" />
                   <mssgle:LineSegment
-                    End="174.599997541308,-145.899997094274" />
+                    End="-57.6666648785274,82.1499980442227" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4754,10 +4390,412 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="413.749994728714,527.249992679805" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri3]"
+          TopLeft="205.899997727573,170.349998081476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.7666661823789,75.8999982491136"
+              Start="0,0"
+              End="51.7666661823789,68.3999982491136">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.0529401371744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.0529401371744"
+                    Point2="0,45.0529401371744"
+                    Point3="4,45.0529401371744" />
+                  <mssgle:LineSegment
+                    End="47.7666661823789,45.0529401371744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.7666661823789,45.0529401371744"
+                    Point2="51.7666661823789,45.0529401371744"
+                    Point3="51.7666661823789,49.0529401371744" />
+                  <mssgle:LineSegment
+                    End="51.7666661823789,68.3999982491136" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri2]"
+          TopLeft="743.499990798533,444.549993685633">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.4999976530671,-53.7499991990626"
+              Start="0,0"
+              End="45.9999976530671,-53.7499991990626">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.7499988265336,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.7499988265336,0"
+                    Point2="26.7499988265336,0"
+                    Point3="26.7499988265336,-4" />
+                  <mssgle:LineSegment
+                    End="26.7499988265336,-49.7499991990626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.7499988265336,-49.7499991990626"
+                    Point2="26.7499988265336,-53.7499991990626"
+                    Point3="30.7499988265336,-53.7499991990626" />
+                  <mssgle:LineSegment
+                    End="45.9999976530671,-53.7499991990626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri1]"
+          TopLeft="824.499988563359,146.599998435378">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.0999998882414,223.399996051192"
+              Start="0,0"
+              End="50.0999998882414,215.899996051192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.699998025596" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,107.699998025596"
+                    Point2="0,111.699998025596"
+                    Point3="4,111.699998025596" />
+                  <mssgle:LineSegment
+                    End="46.0999998882414,111.699998025596" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.0999998882414,111.699998025596"
+                    Point2="50.0999998882414,111.699998025596"
+                    Point3="50.0999998882414,115.699998025596" />
+                  <mssgle:LineSegment
+                    End="50.0999998882414,215.899996051192" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de tri]"
+          TopLeft="581.99999217689,154.099998323619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.8500004284086,152.1499971129"
+              Start="0,0"
+              End="13.8500004284086,144.6499971129">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.07499855645" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72.07499855645"
+                    Point2="0,76.07499855645"
+                    Point3="4,76.07499855645" />
+                  <mssgle:LineSegment
+                    End="9.85000042840863,76.07499855645" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.85000042840863,76.07499855645"
+                    Point2="13.8500004284086,76.07499855645"
+                    Point3="13.8500004284086,80.07499855645" />
+                  <mssgle:LineSegment
+                    End="13.8500004284086,144.6499971129" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB4]"
+          TopLeft="191.599998211861,82.8499993853271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.2999995157123,45.8999986961484"
+              Start="0,0"
+              End="14.2999995157123,38.3999986961484">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9499993480742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9499993480742"
+                    Point2="0,22.9499993480742"
+                    Point3="4,22.9499993480742" />
+                  <mssgle:LineSegment
+                    End="10.2999995157123,22.9499993480742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.2999995157123,22.9499993480742"
+                    Point2="14.2999995157123,22.9499993480742"
+                    Point3="14.2999995157123,26.9499993480742" />
+                  <mssgle:LineSegment
+                    End="14.2999995157123,38.3999986961484" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB3]"
+          TopLeft="373.349995175749,82.8499993853271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.3499997206032,32.1499989010394"
+              Start="0,0"
+              End="-11.3499997206032,24.6499989010394">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0749994505197" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0749994505197"
+                    Point2="0,16.0749994505197"
+                    Point3="-4,16.0749994505197" />
+                  <mssgle:LineSegment
+                    End="-7.34999972060319,16.0749994505197" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.34999972060319,16.0749994505197"
+                    Point2="-11.3499997206032,16.0749994505197"
+                    Point3="-11.3499997206032,20.0749994505197" />
+                  <mssgle:LineSegment
+                    End="-11.3499997206032,24.6499989010394" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB2]"
+          TopLeft="580.524992242083,82.8499993853271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.6499989382923"
+              Start="0,0"
+              End="0,22.1499989382923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1499989382923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
+          TopLeft="827.199988637865,79.0999994412065">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.8999989941716"
+              Start="0,0"
+              End="0,18.3999989941716">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3999989941716" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="1190.49998312444,92.8499992363155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.4999989196658,59.6499984912574"
+              Start="0,0"
+              End="71.4999989196658,52.1499984912574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8249992456287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.8249992456287"
+                    Point2="0,29.8249992456287"
+                    Point3="4,29.8249992456287" />
+                  <mssgle:LineSegment
+                    End="67.4999989196658,29.8249992456287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.4999989196658,29.8249992456287"
+                    Point2="71.4999989196658,29.8249992456287"
+                    Point3="71.4999989196658,33.8249992456287" />
+                  <mssgle:LineSegment
+                    End="71.4999989196658,52.1499984912574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion3]"
+          TopLeft="595.849992605299,347.849995436519">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.6499981932342,75.8999982491135"
+              Start="0,0"
+              End="95.6499981932342,68.3999982491135">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9499991245568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.9499991245568"
+                    Point2="0,37.9499991245568"
+                    Point3="4,37.9499991245568" />
+                  <mssgle:LineSegment
+                    End="91.6499981932342,37.9499991245568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.6499981932342,37.9499991245568"
+                    Point2="95.6499981932342,37.9499991245568"
+                    Point3="95.6499981932342,41.9499991245568" />
+                  <mssgle:LineSegment
+                    End="95.6499981932342,68.3999982491135" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion2]"
+          TopLeft="277.499997131526,287.849996330589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.6499985657632"
+              Start="0,0"
+              End="0,47.1499985657632">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.1499985657632" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion1]"
+          TopLeft="1165.3833178175,287.849996330589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.2333330725633,106.399998956919"
+              Start="0,0"
+              End="-47.2333330725633,98.8999989569187">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2114281478097" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.2114281478097"
+                    Point2="0,43.2114281478097"
+                    Point3="-4,43.2114281478097" />
+                  <mssgle:LineSegment
+                    End="-43.2333330725633,43.2114281478097" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.2333330725633,43.2114281478097"
+                    Point2="-47.2333330725633,43.2114281478097"
+                    Point3="-47.2333330725633,47.2114281478097" />
+                  <mssgle:LineSegment
+                    End="-47.2333330725633,98.8999989569187" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion]"
+          TopLeft="874.5999884516,411.59999448657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.6499984912575,29.6499989382924"
+              Start="0,0"
+              End="75.6499984912575,22.1499989382924">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.8249994691462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.8249994691462"
+                    Point2="0,14.8249994691462"
+                    Point3="4,14.8249994691462" />
+                  <mssgle:LineSegment
+                    End="71.6499984912575,14.8249994691462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.6499984912575,14.8249994691462"
+                    Point2="75.6499984912575,14.8249994691462"
+                    Point3="75.6499984912575,18.8249994691462" />
+                  <mssgle:LineSegment
+                    End="75.6499984912575,22.1499989382924" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
           TopLeft="1091.99998405576,484.549993089587">
@@ -4784,44 +4822,6 @@
                     Point3="-264.724994663522,63.4999995902181" />
                   <mssgle:LineSegment
                     End="-513.949989327043,63.4999995902181" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Tâche de flux de données\Fractionnement conditionnel"
-          TopLeft="1023.74998474494,394.249995287508" />
-        <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de jointure de fusion3]"
-          TopLeft="1165.3833178175,287.849996330589">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-47.2333330725633,106.399998956919"
-              Start="0,0"
-              End="-47.2333330725633,98.8999989569187">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.2114281478097" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.2114281478097"
-                    Point2="0,43.2114281478097"
-                    Point3="-4,43.2114281478097" />
-                  <mssgle:LineSegment
-                    End="-43.2333330725633,43.2114281478097" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-43.2333330725633,43.2114281478097"
-                    Point2="-47.2333330725633,43.2114281478097"
-                    Point3="-47.2333330725633,47.2114281478097" />
-                  <mssgle:LineSegment
-                    End="-47.2333330725633,98.8999989569187" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4870,19 +4870,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\demandeanayse">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\client">
     <Properties>
       <Property>
@@ -4896,7 +4883,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\facturereglement">
+    design-time-name="Package\Tâche de flux de données\demandeanayse">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4936,6 +4923,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\facturereglement">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

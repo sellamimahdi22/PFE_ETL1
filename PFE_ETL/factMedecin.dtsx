@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="factMedecin"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{E05B5874-036C-411F-81CF-0650156C0755}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{305C5056-F2F8-47E6-A7A2-56EE39EB6B04}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -142,12 +142,6 @@
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idetat_demande_analyse]"
                       lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idetat_demande_analyse]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idspecialitemedicale]"
-                      cachedDataType="i4"
-                      cachedName="idspecialitemedicale"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]" />
-                    <inputColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[iddetailsdemandeanalyse]"
                       cachedDataType="numeric"
                       cachedName="iddetailsdemandeanalyse"
@@ -181,6 +175,12 @@
                       cachedName="specialite"
                       externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[specialite]"
                       lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[specialite]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[idspecialitemedicale]"
+                      cachedDataType="i4"
+                      cachedName="idspecialitemedicale"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -188,6 +188,10 @@
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Medecin]"
                       dataType="i4"
                       name="Id_Dim_Medecin" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Specialite]"
+                      dataType="i4"
+                      name="Id_Dim_Specialite" />
                     <externalMetadataColumn
                       refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[idspecialitemedicale]"
                       dataType="i4"
@@ -238,10 +242,6 @@
                       dataType="wstr"
                       length="50"
                       name="specialite" />
-                    <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Id_Dim_Specialite]"
-                      dataType="i4"
-                      name="Id_Dim_Specialite" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -389,25 +389,6 @@ where [refTable].[idmedecin] = ?</property>
                           name="CopyFromReferenceColumn">nom_en</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[Id_Dim_Medecin]"
-                      cachedDataType="i4"
-                      cachedName="Id_Dim_Medecin"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Id_Dim_Medecin]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">Id_Dim_Medecin</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -474,7 +455,7 @@ where [refTable].[idmedecin] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Specialite]) [refTable]
-where [refTable].[idspecialitemedicale] = ?</property>
+where [refTable].[iddemandeanalyses] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
@@ -505,12 +486,12 @@ where [refTable].[idspecialitemedicale] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id_Dim_Specialite" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idspecialitemedicale" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="specialite" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom_en" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddetailsdemandeanalyse" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="actif" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="abriviation" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idetat_demande_analyse" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idmedecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id_Dim_Specialite" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idmedecin" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="specialite" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="iddemandeanalyses" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="idspecialitemedicale" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]};</property>
+                  name="ParameterMap">#{Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]};</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
@@ -534,42 +515,23 @@ where [refTable].[idspecialitemedicale] = ?</property>
                   name="Entrée de recherche">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche].Columns[nom_en]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="nom_en"
+                      refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche].Columns[iddemandeanalyses]"
+                      cachedDataType="numeric"
+                      cachedName="iddemandeanalyses"
+                      cachedPrecision="18"
                       errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom_en]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">nom_en</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche].Columns[idspecialitemedicale]"
-                      cachedDataType="i4"
-                      cachedName="idspecialitemedicale"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idspecialitemedicale]"
+                      lineageId="Package\Tâche de flux de données\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[iddemandeanalyses]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">idspecialitemedicale</property>
+                          name="JoinToReferenceColumn">iddemandeanalyses</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">idspecialitemedicale</property>
+                          name="CopyFromReferenceColumn">iddemandeanalyses</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -584,6 +546,20 @@ where [refTable].[idspecialitemedicale] = ?</property>
                   name="Sortie de recherche avec correspondance"
                   synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[idspecialitemedicale]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[idspecialitemedicale]"
+                      name="idspecialitemedicale"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">idspecialitemedicale</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
                       refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance].Columns[specialite]"
                       dataType="wstr"
@@ -984,45 +960,45 @@ where [refTable].[idspecialitemedicale] = ?</property>
         <NodeLayout
           Size="140.8,41.6"
           Id="Package\Tâche de flux de données\Source OLE DB"
-          TopLeft="240.99999640882,64.9999990314245" />
-        <NodeLayout
-          Size="128,41.6"
-          Id="Package\Tâche de flux de données\Recherche 1"
-          TopLeft="245.999996334314,223.99999666214" />
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="217.999996751547,333.999995023012" />
+          TopLeft="300.999995514751,45.9999993145466" />
         <NodeLayout
           Size="120.8,41.6"
           Id="Package\Tâche de flux de données\Recherche"
-          TopLeft="198.999997034669,135.999997973442" />
+          TopLeft="251.999996244907,183.999997258186" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Tâche de flux de données\Recherche 1"
+          TopLeft="333.999995023012,323.999995172024" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="134.999997988343,344.999994859099" />
         <EdgeLayout
           Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-          TopLeft="311.39999640882,106.599999031425">
+          TopLeft="371.399995514751,87.5999993145466">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-51.9999993741513,29.3999989420176"
+              EndConnector="-58.9999992698431,96.3999979436398"
               Start="0,0"
-              End="-51.9999993741513,21.8999989420176">
+              End="-58.9999992698431,88.8999979436398">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.6999994710088" />
+                    End="0,44.1999989718199" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.6999994710088"
-                    Point2="0,14.6999994710088"
-                    Point3="-4,14.6999994710088" />
+                    Point1="0,44.1999989718199"
+                    Point2="0,48.1999989718199"
+                    Point3="-4,48.1999989718199" />
                   <mssgle:LineSegment
-                    End="-47.9999993741513,14.6999994710088" />
+                    End="-54.9999992698431,48.1999989718199" />
                   <mssgle:CubicBezierSegment
-                    Point1="-47.9999993741513,14.6999994710088"
-                    Point2="-51.9999993741513,14.6999994710088"
-                    Point3="-51.9999993741513,18.6999994710088" />
+                    Point1="-54.9999992698431,48.1999989718199"
+                    Point2="-58.9999992698431,48.1999989718199"
+                    Point3="-58.9999992698431,52.1999989718199" />
                   <mssgle:LineSegment
-                    End="-51.9999993741513,21.8999989420176" />
+                    End="-58.9999992698431,88.8999979436398" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1032,74 +1008,74 @@ where [refTable].[idspecialitemedicale] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="309.999996334314,265.59999666214">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="312.399996244907,225.599997258186">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.5999995827675,68.3999983608722"
+              EndConnector="85.5999987781047,98.3999979138374"
               Start="0,0"
-              End="-13.5999995827675,60.8999983608722">
+              End="85.5999987781047,90.8999979138374">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.1999991804361" />
+                    End="0,45.1999989569187" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.1999991804361"
-                    Point2="0,34.1999991804361"
-                    Point3="-4,34.1999991804361" />
+                    Point1="0,45.1999989569187"
+                    Point2="0,49.1999989569187"
+                    Point3="4,49.1999989569187" />
                   <mssgle:LineSegment
-                    End="-9.59999958276745,34.1999991804361" />
+                    End="81.5999987781047,49.1999989569187" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9.59999958276745,34.1999991804361"
-                    Point2="-13.5999995827675,34.1999991804361"
-                    Point3="-13.5999995827675,38.1999991804361" />
+                    Point1="81.5999987781047,49.1999989569187"
+                    Point2="85.5999987781047,49.1999989569187"
+                    Point3="85.5999987781047,53.1999989569187" />
                   <mssgle:LineSegment
-                    End="-13.5999995827675,60.8999983608722" />
+                    End="85.5999987781047,90.8999979138374" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-98.4770115101337,39.1999991804361,183.3540234375,11.609375"
+              BoundingBox="-48.8770123296976,54.1999989569187,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="259.399997034669,177.599997973442">
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="333.999995023012,344.799995172024">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50.5999992996454,46.3999986886978"
+              EndConnector="-42.1999970346689,20.9999996870756"
               Start="0,0"
-              End="50.5999992996454,38.8999986886978">
+              End="-34.6999970346689,20.9999996870756">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.1999993443489" />
+                    End="-17.0999985173345,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.1999993443489"
-                    Point2="0,23.1999993443489"
-                    Point3="4,23.1999993443489" />
+                    Point1="-17.0999985173345,0"
+                    Point2="-21.0999985173345,0"
+                    Point3="-21.0999985173345,4" />
                   <mssgle:LineSegment
-                    End="46.5999992996454,23.1999993443489" />
+                    End="-21.0999985173345,16.9999996870756" />
                   <mssgle:CubicBezierSegment
-                    Point1="46.5999992996454,23.1999993443489"
-                    Point2="50.5999992996454,23.1999993443489"
-                    Point3="50.5999992996454,27.1999993443489" />
+                    Point1="-21.0999985173345,16.9999996870756"
+                    Point2="-21.0999985173345,20.9999996870756"
+                    Point3="-25.0999985173345,20.9999996870756" />
                   <mssgle:LineSegment
-                    End="50.5999992996454,38.8999986886978" />
+                    End="-34.6999970346689,20.9999996870756" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-66.3770120689273,28.1999993443489,183.3540234375,11.609375"
+              BoundingBox="-112.777010236084,-17.609375,183.3540234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1120,12 +1096,35 @@ where [refTable].[idspecialitemedicale] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Medecin]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Tâche de flux de données\Recherche 1">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1135,7 +1134,7 @@ where [refTable].[idspecialitemedicale] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1152,29 +1151,6 @@ where [refTable].[idspecialitemedicale] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Recherche">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Medecin]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
